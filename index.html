@@ -12,6 +12,8 @@
       padding: 0;
       color: #ecf0f1;
       text-align: center;
+      position: relative;
+      z-index: 0;
     }
 
     h1 {
@@ -88,39 +90,27 @@
       }
     }
 
-    /* === Brouillard animé === */
-    .fog-container {
+    /* === Brouillard animé réaliste === */
+    .fog {
       position: fixed;
       bottom: 0;
       left: 0;
-      width: 100%;
-      height: 100px;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .fog {
-      position: absolute;
       width: 200%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 20%, transparent 80%);
-      animation: fogMove 30s linear infinite;
-      opacity: 0.4;
-    }
-
-    .fog2 {
-      animation-duration: 60s;
-      opacity: 0.3;
+      height: 150px;
+      background: url('https://i.ibb.co/qydkLfc/fog.png') repeat-x;
+      background-size: cover;
+      animation: fogMove 60s linear infinite;
+      opacity: 0.15;
+      z-index: 0;
+      pointer-events: none;
     }
 
     @keyframes fogMove {
-      0% { transform: translateX(-50%); }
-      100% { transform: translateX(0%); }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
   </style>
 </head>
-
 <body>
   <div class="bande">📝 CV BUILDER 🤖 ...</div>
   <h1>Bienvenue sur le CV Bot</h1>
@@ -138,9 +128,6 @@
     </ul>
   </nav>
 
-  <div class="fog-container">
-    <div class="fog"></div>
-    <div class="fog fog2"></div>
-  </div>
+  <div class="fog"></div>
 </body>
-</html>
+  </html>
