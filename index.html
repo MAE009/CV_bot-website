@@ -65,36 +65,17 @@
       color: black;
     }
 
-    /* Styles pour l'animation du brouillard */
-    .fog-container {
+    .brouillard-image {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 100px; /* Ajustez la hauteur selon vos besoins */
-      overflow: hidden;
+      height: 150px;
+      background: url('Assets/frog.png') no-repeat bottom center;
+      background-size: cover;
       pointer-events: none;
-      z-index: -1; /* Assure que le brouillard est derrière le contenu */
-    }
-
-    .fog {
-      position: absolute;
-      width: 200%; /* Plus large que le conteneur pour le mouvement */
-      height: 100%;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 20%, transparent 80%);
-      animation: fogMove 30s linear infinite;
-      opacity: 0.4;
-    }
-
-    .fog2 {
-      animation-duration: 60s; /* Vitesse différente pour la seconde couche */
-      opacity: 0.3;
-      animation-delay: -15s; /* Démarre la seconde couche de brouillard à un point différent */
-    }
-
-    @keyframes fogMove {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-50%); } /* Déplace vers la gauche sur 50% de sa largeur */
+      z-index: 2;
+      opacity: 0.5;
     }
 
     @media (max-width: 480px) {
@@ -131,9 +112,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  <div class="fog-container">
-    <div class="fog"></div>
-    <div class="fog fog2"></div>
-  </div>
+  
+  <div class="brouillard-image"></div>
 </body>
 </html>
