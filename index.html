@@ -1,103 +1,112 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html><html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV bot infos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Bot - Accueil</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
-      background-color: #000000;
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
       color: #ecf0f1;
       text-align: center;
-    }
-    h1 {
-      margin-top: 50px;
-      font-size: 2.5rem;
-    }
+    }.bande {
+  background: #0088cc;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(225, 225, 225, 0.5);
+  max-width: 900px;
+  margin: 20px auto;
+  font-weight: bold;
+  font-size: 1.2rem;
+  animation: fadeIn 1s ease-out;
+}
 
-    .bande {
-      background: #0088cc;
-      color: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(225, 225, 225, 0.5);
-      max-width: 900px;
-      margin: 20px auto;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .logo {
-      display: block;
-      margin: 30px auto;
-      border-radius: 50%;
-      max-height: 400px;
-      height: auto;
-      max-width: 300px;
-      box-shadow: 0 0 10px rgba(0,136,204,0.7);
-    }
+h1 {
+  margin-top: 30px;
+  font-size: 2.5rem;
+  animation: fadeIn 1.2s ease-out;
+}
 
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 40px auto;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
+.logo {
+  display: block;
+  margin: 30px auto;
+  border-radius: 50%;
+  max-height: 300px;
+  height: auto;
+  max-width: 250px;
+  box-shadow: 0 0 10px rgba(0, 136, 204, 0.7);
+  animation: fadeIn 1.5s ease-out;
+}
 
-    nav ul li a {
-      text-decoration: none;
-      color: #00acee;
-      background-color: #1c1c1c;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-weight: bold;
-      box-shadow: 0 0 5px rgba(0,136,204,0.3);
-      transition: 0.3s;
-    }
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
 
-    nav ul li a:hover {
-      background-color: #00acee;
-      color: black;
-    }
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(145deg, #006699, #00aaff);
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 170, 255, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-    @media (max-width: 480px) {
-      h1 {
-         font-size: 1.8rem;
-      }
-      .logo {
-         max-height: 200px;
-         max-width: 166px;
-     }
-     nav ul {
-         flex-direction: column;
-         align-items: center;
-     }
-     nav ul li {
-         margin-bottom: 12px; /* espace vertical entre les boutons */
-     }
-    }
+nav ul li a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.6);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .bande {
+    font-size: 1rem;
+    padding: 10px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .logo {
+    max-height: 180px;
+    max-width: 180px;
+  }
+}
+
   </style>
 </head>
 <body>
-  <div class="bande">📝 CV BUILDER 🤖 ...</div>
+  <div class="bande">📝 CV BUILDER 🤖 — Générez votre CV avec style !</div>
   <h1>Bienvenue sur le CV Bot</h1>
-  <img class="logo" src="Assets/CV_bot.jpeg" alt="Le bot CV" />
-
+  <img class="logo" src="assets/CV_bot.jpeg" alt="Le bot CV">
   <nav>
     <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="comment.html">Comment ça marche</a></li>
-      <li><a href="modeles.html">Modèles</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="temoignages.html">Témoignages</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#"><i class="fas fa-home"></i> Accueil</a></li>
+      <li><a href="#"><i class="fas fa-cogs"></i> Comment &ccedil;a marche</a></li>
+      <li><a href="#"><i class="fas fa-file-alt"></i> Mod&egrave;les</a></li>
+      <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="#"><i class="fas fa-users"></i> T&eacute;moignages</a></li>
+      <li><a href="#"><i class="fas fa-user"></i> &Agrave; propos</a></li>
+      <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
     </ul>
   </nav>
 </body>
-</html>
+                                                                                </html>
