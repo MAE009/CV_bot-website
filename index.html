@@ -69,13 +69,23 @@
       position: fixed;
       bottom: 0;
       left: 0;
-      width: 100%;
+      width: 200%; /* Double largeur pour effet de défilement */
       height: 150px;
-      background: url('Assets/frog.png') no-repeat bottom center;
+      background: url('Assets/fog.png') repeat-x;
       background-size: cover;
+      opacity: 0.4;
+      animation: fogMove 60s linear infinite;
       pointer-events: none;
-      z-index: 2;
-      opacity: 0.5;
+      z-index: 1;
+   }
+
+   @keyframes fogMove {
+     from {
+        transform: translateX(0%);
+     }
+     to {
+        transform: translateX(-50%);
+     }
     }
 
     @media (max-width: 480px) {
