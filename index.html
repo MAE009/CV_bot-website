@@ -1,82 +1,178 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV Builder Bot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Bot - Créateur de CV Intelligent</title>
   <style>
     :root {
-      --primary: #00acee;
-      --dark: #111111;
-      --light: #f8f9fa;
+      --primary: #2563eb;
+      --secondary: #3b82f6;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --accent: #f59e0b;
     }
     
     body {
       background-color: var(--dark);
-      font-family: 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, sans-serif;
       margin: 0;
-      padding: 0 0 20px 0;
       color: var(--light);
-      text-align: center;
       line-height: 1.6;
+      overflow-x: hidden;
     }
     
-    .header {
-      background: linear-gradient(135deg, #0066cc, #00acee);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    /* En-tête premium */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 3rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
     
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 700;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    .hero::after {
+      content: "";
+      background: url('Assets/wave.svg') repeat-x;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      opacity: 0.2;
     }
     
-    .subtitle {
-      font-size: 1rem;
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 0 0 1rem;
+      background: linear-gradient(to right, #fff, #e0f2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
       opacity: 0.9;
-      margin-top: 0.5rem;
     }
     
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 2rem auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      max-width: 90%;
-    }
-    
-    nav ul li a {
-      display: block;
-      padding: 1rem;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 12px;
-      color: var(--light);
+    /* Bouton CTA principal */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--accent);
+      color: #1e293b;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
       text-decoration: none;
-      font-weight: 500;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
       transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
     }
     
-    nav ul li a:hover {
-      background: var(--primary);
+    .cta:hover {
       transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,172,238,0.3);
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
     }
     
-    /* Animation de brouillard avec votre image */
+    /* Section média */
+    .media-section {
+      padding: 3rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    @media (min-width: 768px) {
+      .media-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    .media-card {
+      background: rgba(30, 41, 59, 0.6);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .media-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .media-thumbnail {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 */
+      overflow: hidden;
+    }
+    
+    .media-thumbnail img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .media-content {
+      padding: 1.5rem;
+    }
+    
+    .media-content h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.3rem;
+    }
+    
+    .media-content p {
+      opacity: 0.8;
+      font-size: 0.95rem;
+    }
+    
+    /* Section fonctionnalités */
+    .features {
+      background: rgba(15, 23, 42, 0.7);
+      padding: 3rem 1.5rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: #0f172a;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    
+    /* Animation brouillard améliorée */
     .fog-container {
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 100px;
+      height: 120px;
       overflow: hidden;
       z-index: 10;
       pointer-events: none;
@@ -90,54 +186,61 @@
       height: 100%;
       background: url('Assets/fog.png') repeat-x;
       background-size: contain;
-      opacity: 0.8;
-      animation: fogScroll 40s linear infinite;
+      opacity: 0.7;
+      animation: fogScroll 50s linear infinite;
     }
     
     @keyframes fogScroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    
-    @media (max-width: 480px) {
-      nav ul {
-        grid-template-columns: 1fr;
-        max-width: 95%;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      .fog-container {
-        height: 70px;
-      }
-      
-      .fog {
-        opacity: 0.9;
-        animation-duration: 60s;
-      }
-    }
   </style>
 </head>
 <body>
-  <header class="header">
-    <h1>CV BUILDER</h1>
-    <div class="subtitle">Bienvenue sur le CV Bot</div>
-  </header>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Créez un CV Parfait en 5 Minutes</h1>
+    <p>Notre bot Telegram révolutionnaire transforme vos informations en CV professionnel automatiquement</p>
+    <a href="https://t.me/yourcvbot" class="cta">
+      Essayer Maintenant →
+    </a>
+  </section>
   
-  <nav>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="comment.html">Comment ça marche</a></li>
-      <li><a href="modeles.html">Modèles</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="temoignages.html">Témoignages</a></li>
-      <li><a href="apropos.html">À propos</a></li>
-    </ul>
-  </nav>
+  <!-- Section Guide Vidéo -->
+  <section class="media-section">
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">Guide d'Utilisation</h2>
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem; opacity: 0.8;">
+      Découvrez comment créer votre CV en moins de temps qu'il n'en faut pour boire un café
+    </p>
+    
+    <div class="media-grid">
+      <!-- Vidéo 1 -->
+      <div class="media-card">
+        <div class="media-thumbnail">
+          <img src="Assets/video-thumbnail-1.jpg" alt="Démarrer le bot">
+          <div class="play-icon">▶</div>
+        </div>
+        <div class="media-content">
+          <h3>Premiers Pas avec le Bot</h3>
+          <p>Apprenez à démarrer une conversation et sélectionner votre modèle de CV</p>
+        </div>
+      </div>
+      
+      <!-- Vidéo 2 -->
+      <div class="media-card">
+        <div class="media-thumbnail">
+          <img src="Assets/video-thumbnail-2.jpg" alt="Remplir les informations">
+          <div class="play-icon">▶</div>
+        </div>
+        <div class="media-content">
+          <h3>Remplir vos Expériences</h3>
+          <p>Guide complet pour ajouter vos formations, expériences et compétences</p>
+        </div>
+      </div>
+    </div>
+  </section>
   
-  <!-- Brouillard avec votre image -->
+  <!-- Brouillard -->
   <div class="fog-container">
     <div class="fog"></div>
   </div>
