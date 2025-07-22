@@ -9,7 +9,7 @@
       background-color: #000000;
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 0 0 50px 0; /* Ajouté padding-bottom pour le brouillard */
       color: #ecf0f1;
       text-align: center;
     }
@@ -65,27 +65,42 @@
       color: black;
     }
 
-    .brouillard-image {
+    /* Nouveau style amélioré pour le brouillard */
+    .brouillard-container {
       position: fixed;
       bottom: 0;
       left: 0;
-      width: 200%; /* Double largeur pour effet de défilement */
+      width: 100%;
       height: 150px;
-      background: url('Assets/fog.png') repeat-x;
-      background-size: cover;
-      opacity: 0.4;
-      animation: fogMove 60s linear infinite;
+      overflow: hidden;
       pointer-events: none;
       z-index: 1;
-   }
+    }
 
-   @keyframes fogMove {
-     from {
+    .brouillard-image {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: url('Assets/fog.png') repeat-x;
+      /* Solution de repli si l'image n'est pas trouvée */
+      background: linear-gradient(to right, 
+                    rgba(0,0,0,0.8) 0%, 
+                    rgba(0,0,0,0.3) 50%, 
+                    rgba(0,0,0,0.8) 100%);
+      background-size: auto 100%;
+      opacity: 0.3;
+      animation: fogMove 60s linear infinite;
+    }
+
+    @keyframes fogMove {
+      0% {
         transform: translateX(0%);
-     }
-     to {
+      }
+      100% {
         transform: translateX(-50%);
-     }
+      }
     }
 
     @media (max-width: 480px) {
@@ -101,7 +116,10 @@
         align-items: center;
       }
       nav ul li {
-        margin-bottom: 12px; /* espace vertical entre les boutons */
+        margin-bottom: 12px;
+      }
+      .brouillard-container {
+        height: 100px; /* Réduit la hauteur sur mobile */
       }
     }
   </style>
@@ -123,6 +141,9 @@
     </ul>
   </nav>
   
-  <div class="brouillard-image"></div>
+  <!-- Nouveau conteneur pour le brouillard -->
+  <div class="brouillard-container">
+    <div class="brouillard-image"></div>
+  </div>
 </body>
 </html>
