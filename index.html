@@ -1,259 +1,68 @@
-<!DOCTYPE html>
-<html lang="fr" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Créez un CV professionnel en 5 minutes avec Temoin005Bot sur Telegram - Accessible et adapté à tous les appareils">
-  <title>Temoin005Bot - Créateur de CV Accessible</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-  <!-- Navigation améliorée -->
-  <header>
-    <nav aria-label="Navigation principale">
-      <div class="logo" aria-label="Temoin005Bot - Retour à l'accueil">
-        <i class="fas fa-robot" aria-hidden="true"></i>
-        <span>Temoin005Bot</span>
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV Builder | Guides</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --primary-purple: #5D3A87;
+      --secondary-orange: #F4A259;
+      --accent-yellow: #F2C14E;
+      --mint-green: #4D9078;
+      --light-blue: #5EC2D0;
+    }
+  </style>
+</head><body class="bg-[var(--primary-purple)] text-white font-sans">
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-[var(--secondary-orange)] shadow-md">
+    <h1 class="text-xl font-bold text-[var(--primary-purple)]">CV Builder</h1>
+    <ul class="flex gap-6 font-semibold text-white">
+      <li><a href="#" class="hover:text-[var(--accent-yellow)]">Accueil</a></li>
+      <li><a href="#guides" class="hover:text-[var(--accent-yellow)]">Guides</a></li>
+      <li><a href="#faq" class="hover:text-[var(--accent-yellow)]">FAQ</a></li>
+      <li><a href="#contact" class="hover:text-[var(--accent-yellow)]">Contact</a></li>
+    </ul>
+  </nav>  <!-- Hero Section -->  <header class="text-center py-16 px-6">
+    <h2 class="text-4xl font-bold mb-4">Maîtrisez CV Builder</h2>
+    <p class="text-lg text-gray-200 max-w-2xl mx-auto">Découvrez comment générer un CV professionnel en quelques clics grâce à nos guides illustrés et vidéos pas à pas.</p>
+  </header>  <!-- Guides Section -->  <section id="guides" class="bg-white text-black py-16 px-6">
+    <h3 class="text-3xl font-bold text-center text-[var(--primary-purple)] mb-10">Guides d'utilisation</h3>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-[var(--mint-green)] text-white p-6 rounded-xl shadow-md">
+        <h4 class="text-xl font-semibold mb-2">📸 Guide en images</h4>
+        <p>Pas à pas avec des captures d’écran pour comprendre chaque étape.</p>
+        <a href="#" class="inline-block mt-4 underline text-[var(--accent-yellow)]">Voir les images</a>
       </div>
-      <button class="menu-toggle" aria-expanded="false" aria-label="Menu" aria-controls="nav-links">
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-        <span class="menu-bar"></span>
-      </button>
-      <div class="nav-links" id="nav-links">
-        <a href="#accueil" class="nav-link" aria-current="page">Accueil</a>
-        <a href="#modeles" class="nav-link">Modèles</a>
-        <a href="#fonctions" class="nav-link">Fonctions</a>
-        <a href="#guide" class="nav-link">Guide</a>
-        <a href="#apropos" class="nav-link">À propos</a>
-        <a href="#contact" class="nav-link">Contact</a>
+      <div class="bg-[var(--light-blue)] text-white p-6 rounded-xl shadow-md">
+        <h4 class="text-xl font-semibold mb-2">🎬 Vidéos explicatives</h4>
+        <p>Tutoriels vidéos montrant l’utilisation du bot en action.</p>
+        <a href="#" class="inline-block mt-4 underline text-[var(--accent-yellow)]">Voir les vidéos</a>
       </div>
-    </nav>
-  </header>
-
-  <!-- Section Accueil améliorée -->
-  <section id="accueil" class="hero" aria-labelledby="hero-heading">
-    <div class="hero-content">
-      <h1 id="hero-heading">Votre Carrière,<br>Notre Expertise</h1>
-      <p class="hero-subtitle">Créez un CV professionnel en 5 minutes avec notre bot Telegram</p>
-      <div class="cta-container">
-        <a href="https://t.me/Temoin005Bot" class="cta-button pulse" aria-label="Essayer Temoin005Bot sur Telegram">
-          <i class="fab fa-telegram" aria-hidden="true"></i> Essayer maintenant
-        </a>
-        <button class="theme-toggle" aria-label="Changer de thème">
-          <i class="fas fa-moon" aria-hidden="true"></i>
-        </button>
+      <div class="bg-[var(--secondary-orange)] text-white p-6 rounded-xl shadow-md">
+        <h4 class="text-xl font-semibold mb-2">📄 Fiche PDF</h4>
+        <p>Guide téléchargeable en PDF pour un accès hors ligne rapide.</p>
+        <a href="#" class="inline-block mt-4 underline text-[var(--primary-purple)]">Télécharger le guide</a>
       </div>
     </div>
-    <div class="hero-illustration" aria-hidden="true">
-      <!-- Illustration SVG pour le bot -->
-      <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-        <!-- Votre illustration vectorielle ici -->
-      </svg>
-    </div>
-  </section>
-
-  <!-- Section Modèles améliorée -->
-  <section id="modeles" class="section" aria-labelledby="modeles-heading">
-    <div class="section-container">
-      <h2 id="modeles-heading">Nos Modèles de CV</h2>
-      <p class="section-description">Choisissez le design qui correspond à votre personnalité professionnelle</p>
-      
-      <div class="modeles-grid">
-        <article class="modele-card" tabindex="0">
-          <div class="modele-img" style="background-color: #FF6B6B;" aria-hidden="true"></div>
-          <div class="modele-content">
-            <h3>Classique</h3>
-            <p>Design professionnel épuré</p>
-            <span class="visually-hidden">Caractéristiques : structure linéaire, couleurs sobres, mise en page traditionnelle</span>
-          </div>
-        </article>
-        
-        <article class="modele-card" tabindex="0">
-          <div class="modele-img" style="background-color: #4ECDC4;" aria-hidden="true"></div>
-          <div class="modele-content">
-            <h3>Moderne</h3>
-            <p>Style contemporain</p>
-            <span class="visually-hidden">Caractéristiques : sections claires, typographie moderne, espaces aérés</span>
-          </div>
-        </article>
-        
-        <article class="modele-card" tabindex="0">
-          <div class="modele-img" style="background-color: #FFE66D;" aria-hidden="true"></div>
-          <div class="modele-content">
-            <h3>Créatif</h3>
-            <p>Pour profils artistiques</p>
-            <span class="visually-hidden">Caractéristiques : design original, couleurs vives, mise en page dynamique</span>
-          </div>
-        </article>
+  </section>  <!-- FAQ -->  <section id="faq" class="py-16 px-6 bg-[var(--primary-purple)] text-white">
+    <h3 class="text-3xl font-bold text-center mb-10">❓ Questions fréquentes</h3>
+    <div class="max-w-3xl mx-auto space-y-6">
+      <div>
+        <h4 class="font-semibold">Comment utiliser le bot CV Builder ?</h4>
+        <p class="text-gray-200">Ajoute le bot sur Telegram, suis les instructions, et exporte ton CV.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Puis-je modifier mon CV après génération ?</h4>
+        <p class="text-gray-200">Oui, un fichier modifiable est envoyé à la fin du processus.</p>
       </div>
     </div>
-  </section>
-
-  <!-- Section Fonctionnalités améliorée -->
-  <section id="fonctions" class="section dark" aria-labelledby="fonctions-heading">
-    <div class="section-container">
-      <h2 id="fonctions-heading">Fonctionnalités Clés</h2>
-      <p class="section-description">Découvrez pourquoi notre bot est l'outil ultime pour votre CV</p>
-      
-      <div class="features-grid">
-        <article class="feature" tabindex="0">
-          <div class="feature-icon" aria-hidden="true">
-            <i class="fas fa-bolt"></i>
-          </div>
-          <h3>Rapide</h3>
-          <p>5 minutes max</p>
-          <span class="visually-hidden">Générez votre CV en moins de 5 minutes</span>
-        </article>
-        
-        <article class="feature" tabindex="0">
-          <div class="feature-icon" aria-hidden="true">
-            <i class="fas fa-file-pdf"></i>
-          </div>
-          <h3>PDF Pro</h3>
-          <p>Export qualité</p>
-          <span class="visually-hidden">Export au format PDF haute qualité, prêt à imprimer</span>
-        </article>
-        
-        <article class="feature" tabindex="0">
-          <div class="feature-icon" aria-hidden="true">
-            <i class="fas fa-mobile-alt"></i>
-          </div>
-          <h3>Mobile</h3>
-          <p>Sur smartphone</p>
-          <span class="visually-hidden">Optimisé pour une utilisation facile sur mobile</span>
-        </article>
-        
-        <article class="feature" tabindex="0">
-          <div class="feature-icon" aria-hidden="true">
-            <span>
-                <i class="fas fa-money-bill-wave"></i> FCFA
-            </span>
-          </div>
-          <h3>Gratuit</h3>
-          <p>Sans frais cachés</p>
-          <span class="visually-hidden">Service entièrement gratuit sans limitation</span>
-        </article>
-      </div>
+  </section>  <!-- Contact -->  <section id="contact" class="bg-white text-black py-16 px-6">
+    <h3 class="text-3xl font-bold text-center text-[var(--primary-purple)] mb-6">📬 Contact</h3>
+    <p class="text-center mb-6">Des questions ? Rejoins notre bot Telegram ou envoie-nous un message !</p>
+    <div class="text-center">
+      <a href="https://t.me/cv_builder_bot" class="bg-[var(--mint-green)] text-white py-2 px-6 rounded-full shadow hover:bg-[var(--primary-purple)]">Ouvrir le bot</a>
     </div>
-  </section>
-
-  <!-- Section Guide améliorée -->
-  <section id="guide" class="section" aria-labelledby="guide-heading">
-    <div class="section-container">
-      <h2 id="guide-heading">Comment ça marche</h2>
-      <p class="section-description">3 étapes simples pour créer votre CV parfait</p>
-      
-      <ol class="steps">
-        <li class="step">
-          <div class="step-num" aria-hidden="true">1</div>
-          <div class="step-content">
-            <h3>Lancez le bot</h3>
-            <p>Ouvrez Telegram et cherchez @Temoin005Bot</p>
-          </div>
-        </li>
-        
-        <li class="step">
-          <div class="step-num" aria-hidden="true">2</div>
-          <div class="step-content">
-            <h3>Répondez aux questions</h3>
-            <p>Guide interactif simple et intuitif</p>
-          </div>
-        </li>
-        
-        <li class="step">
-          <div class="step-num" aria-hidden="true">3</div>
-          <div class="step-content">
-            <h3>Téléchargez</h3>
-            <p>Recevez votre CV en PDF instantanément</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- Section À propos améliorée -->
-  <section id="apropos" class="section dark" aria-labelledby="apropos-heading">
-    <div class="section-container">
-      <h2 id="apropos-heading">À Propos</h2>
-      <div class="about-content">
-        <p>Notre mission : rendre la création de CV accessible à tous grâce à l'IA, quel que soit votre niveau technique.</p>
-        <p>Développé avec ❤️ pour la communauté <strong>10 000 Codeurs</strong>.</p>
-        <div class="stats">
-          <div class="stat">
-            <span class="stat-number">10K+</span>
-            <span class="stat-label">Utilisateurs</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">98%</span>
-            <span class="stat-label">Satisfaction</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section Contact améliorée -->
-  <section id="contact" class="section" aria-labelledby="contact-heading">
-    <div class="section-container">
-      <h2 id="contact-heading">Contactez-nous</h2>
-      <p class="section-description">Une question ? Un feedback ? Nous sommes à votre écoute</p>
-      
-      <form aria-label="Formulaire de contact">
-        <div class="form-group">
-          <label for="name">Votre nom</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Votre email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Votre message</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        
-        <button type="submit" class="submit-button">
-          <span>Envoyer le message</span>
-          <i class="fas fa-paper-plane" aria-hidden="true"></i>
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer amélioré -->
-  <footer>
-    <div class="footer-content">
-      <div class="accessibility-tools">
-        <button id="font-increase" aria-label="Augmenter la taille du texte">A+</button>
-        <button id="font-reset" aria-label="Taille de texte par défaut">A</button>
-        <button id="font-decrease" aria-label="Diminuer la taille du texte">A-</button>
-        <button class="theme-toggle" aria-label="Changer de thème">
-          <i class="fas fa-moon" aria-hidden="true"></i>
-        </button>
-      </div>
-      
-      <div class="footer-links">
-        <a href="#accueil">Accueil</a>
-        <a href="#modeles">Modèles</a>
-        <a href="#fonctions">Fonctions</a>
-        <a href="#guide">Guide</a>
-        <a href="#apropos">À propos</a>
-        <a href="#contact">Contact</a>
-        <a href="politique-confidentialite.html">Confidentialité</a>
-      </div>
-      
-      <p class="copyright">© <span id="current-year"></span> Temoin005Bot - Tous droits réservés</p>
-    </div>
+  </section>  <!-- Footer -->  <footer class="text-center py-6 bg-[var(--secondary-orange)] text-[var(--primary-purple)] font-semibold">
+    © 2025 CV Builder — Tous droits réservés
   </footer>
-
-  <!-- Brouillard décoratif (aria-hidden car purement décoratif) -->
-  <div class="fog" aria-hidden="true"></div>
-
-  <!-- Scripts -->
-  <script src="script.js"></script>
-</body>
-                                                          </html>
+</body></html>
