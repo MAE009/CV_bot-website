@@ -1,68 +1,321 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV Builder | Guides</title>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Builder | Guides Complets</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary-purple: #5D3A87;
-      --secondary-orange: #F4A259;
-      --accent-yellow: #F2C14E;
-      --mint-green: #4D9078;
-      --light-blue: #5EC2D0;
+      --primary: #6D3AFF;
+      --secondary: #FF9E3D;
+      --accent: #FFD166;
+      --dark: #292F36;
+      --light: #F7FFF7;
+      --mint: #4D9078;
+      --blue: #5EC2D0;
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 1rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+      padding-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
     }
   </style>
-</head><body class="bg-[var(--primary-purple)] text-white font-sans">
-  <!-- Navbar -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-[var(--secondary-orange)] shadow-md">
-    <h1 class="text-xl font-bold text-[var(--primary-purple)]">CV Builder</h1>
-    <ul class="flex gap-6 font-semibold text-white">
-      <li><a href="#" class="hover:text-[var(--accent-yellow)]">Accueil</a></li>
-      <li><a href="#guides" class="hover:text-[var(--accent-yellow)]">Guides</a></li>
-      <li><a href="#faq" class="hover:text-[var(--accent-yellow)]">FAQ</a></li>
-      <li><a href="#contact" class="hover:text-[var(--accent-yellow)]">Contact</a></li>
-    </ul>
-  </nav>  <!-- Hero Section -->  <header class="text-center py-16 px-6">
-    <h2 class="text-4xl font-bold mb-4">Maîtrisez CV Builder</h2>
-    <p class="text-lg text-gray-200 max-w-2xl mx-auto">Découvrez comment générer un CV professionnel en quelques clics grâce à nos guides illustrés et vidéos pas à pas.</p>
-  </header>  <!-- Guides Section -->  <section id="guides" class="bg-white text-black py-16 px-6">
-    <h3 class="text-3xl font-bold text-center text-[var(--primary-purple)] mb-10">Guides d'utilisation</h3>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-[var(--mint-green)] text-white p-6 rounded-xl shadow-md">
-        <h4 class="text-xl font-semibold mb-2">📸 Guide en images</h4>
-        <p>Pas à pas avec des captures d’écran pour comprendre chaque étape.</p>
-        <a href="#" class="inline-block mt-4 underline text-[var(--accent-yellow)]">Voir les images</a>
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="fixed w-full z-50 bg-white shadow-md">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="logo text-2xl font-bold" style="color: var(--primary);">
+        <i class="fas fa-robot mr-2"></i>CV Builder
       </div>
-      <div class="bg-[var(--light-blue)] text-white p-6 rounded-xl shadow-md">
-        <h4 class="text-xl font-semibold mb-2">🎬 Vidéos explicatives</h4>
-        <p>Tutoriels vidéos montrant l’utilisation du bot en action.</p>
-        <a href="#" class="inline-block mt-4 underline text-[var(--accent-yellow)]">Voir les vidéos</a>
-      </div>
-      <div class="bg-[var(--secondary-orange)] text-white p-6 rounded-xl shadow-md">
-        <h4 class="text-xl font-semibold mb-2">📄 Fiche PDF</h4>
-        <p>Guide téléchargeable en PDF pour un accès hors ligne rapide.</p>
-        <a href="#" class="inline-block mt-4 underline text-[var(--primary-purple)]">Télécharger le guide</a>
+      
+      <button class="menu-toggle md:hidden text-2xl" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-links flex gap-8 font-semibold">
+        <li><a href="#accueil" class="hover:text-[var(--primary)]">Accueil</a></li>
+        <li><a href="#guides" class="hover:text-[var(--primary)]">Guides</a></li>
+        <li><a href="#faq" class="hover:text-[var(--primary)]">FAQ</a></li>
+        <li><a href="#contact" class="hover:text-[var(--primary)]">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="accueil" class="hero-gradient text-white pt-32 pb-20">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Votre Carrière, Notre Expertise</h1>
+      <p class="text-xl max-w-2xl mx-auto mb-8">Créez un CV professionnel en 5 minutes avec notre bot Telegram</p>
+      <a href="https://t.me/Temoin005Bot" class="inline-block bg-[var(--accent)] text-[var(--dark)] font-bold py-3 px-8 rounded-full hover:bg-[var(--primary)] hover:text-white transition-all">
+        <i class="fab fa-telegram mr-2"></i> Essayer maintenant
+      </a>
+    </div>
+  </section>
+
+  <!-- Guides Section -->
+  <section id="guides" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4" style="color: var(--primary);">Guides d'utilisation</h2>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Apprenez à maîtriser toutes les fonctionnalités de CV Builder</p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Guide 1 -->
+        <div class="bg-white rounded-xl p-8 shadow-md card-hover">
+          <div class="w-16 h-16 rounded-lg bg-[var(--mint)] text-white flex items-center justify-center mb-4 text-2xl">
+            <i class="fas fa-images"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Guide Visuel</h3>
+          <p class="text-gray-600 mb-4">Pas-à-pas détaillé en images pour chaque étape de création</p>
+          <a href="#" class="font-semibold" style="color: var(--primary);">Voir le guide →</a>
+        </div>
+        
+        <!-- Guide 2 -->
+        <div class="bg-white rounded-xl p-8 shadow-md card-hover">
+          <div class="w-16 h-16 rounded-lg bg-[var(--blue)] text-white flex items-center justify-center mb-4 text-2xl">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Tutoriels Vidéo</h3>
+          <p class="text-gray-600 mb-4">Démonstrations en mouvement pour une prise en main rapide</p>
+          <a href="#" class="font-semibold" style="color: var(--primary);">Voir les vidéos →</a>
+        </div>
+        
+        <!-- Guide 3 -->
+        <div class="bg-white rounded-xl p-8 shadow-md card-hover">
+          <div class="w-16 h-16 rounded-lg bg-[var(--secondary)] text-white flex items-center justify-center mb-4 text-2xl">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Fiche Pratique</h3>
+          <p class="text-gray-600 mb-4">PDF téléchargeable avec toutes les astuces à portée de main</p>
+          <a href="#" class="font-semibold" style="color: var(--primary);">Télécharger →</a>
+        </div>
       </div>
     </div>
-  </section>  <!-- FAQ -->  <section id="faq" class="py-16 px-6 bg-[var(--primary-purple)] text-white">
-    <h3 class="text-3xl font-bold text-center mb-10">❓ Questions fréquentes</h3>
-    <div class="max-w-3xl mx-auto space-y-6">
-      <div>
-        <h4 class="font-semibold">Comment utiliser le bot CV Builder ?</h4>
-        <p class="text-gray-200">Ajoute le bot sur Telegram, suis les instructions, et exporte ton CV.</p>
-      </div>
-      <div>
-        <h4 class="font-semibold">Puis-je modifier mon CV après génération ?</h4>
-        <p class="text-gray-200">Oui, un fichier modifiable est envoyé à la fin du processus.</p>
+  </section>
+
+  <!-- Fonctionnalités -->
+  <section class="py-20" style="background: var(--dark); color: white;">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-4">Fonctionnalités Clés</h2>
+      <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">Découvrez pourquoi notre bot est l'outil ultime pour votre CV</p>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center p-6">
+          <div class="w-20 h-20 rounded-full bg-[var(--primary)] mx-auto mb-4 flex items-center justify-center text-2xl">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Rapide</h3>
+          <p class="text-gray-300">CV généré en 5 minutes chrono</p>
+        </div>
+        
+        <div class="text-center p-6">
+          <div class="w-20 h-20 rounded-full bg-[var(--mint)] mx-auto mb-4 flex items-center justify-center text-2xl">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">PDF Pro</h3>
+          <p class="text-gray-300">Export haute qualité prêt à imprimer</p>
+        </div>
+        
+        <div class="text-center p-6">
+          <div class="w-20 h-20 rounded-full bg-[var(--accent)] mx-auto mb-4 flex items-center justify-center text-2xl" style="color: var(--dark);">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Mobile</h3>
+          <p class="text-gray-300">Optimisé pour utilisation smartphone</p>
+        </div>
       </div>
     </div>
-  </section>  <!-- Contact -->  <section id="contact" class="bg-white text-black py-16 px-6">
-    <h3 class="text-3xl font-bold text-center text-[var(--primary-purple)] mb-6">📬 Contact</h3>
-    <p class="text-center mb-6">Des questions ? Rejoins notre bot Telegram ou envoie-nous un message !</p>
-    <div class="text-center">
-      <a href="https://t.me/Temoin005Bot" class="bg-[var(--mint-green)] text-white py-2 px-6 rounded-full shadow hover:bg-[var(--primary-purple)]">Ouvrir le bot</a>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12" style="color: var(--primary);">❓ Questions Fréquentes</h2>
+      
+      <div class="max-w-3xl mx-auto">
+        <div class="faq-item mb-4">
+          <button class="faq-question w-full flex justify-between items-center text-left font-bold py-4 px-4 bg-white rounded-lg shadow-sm">
+            <span>Comment utiliser le bot CV Builder ?</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="faq-answer px-4 text-gray-600">
+            <p class="py-3">Ajoutez simplement @Temoin005Bot sur Telegram, lancez la conversation et suivez les instructions étape par étape. Le bot vous guidera à travers tout le processus.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item mb-4">
+          <button class="faq-question w-full flex justify-between items-center text-left font-bold py-4 px-4 bg-white rounded-lg shadow-sm">
+            <span>Puis-je modifier mon CV après génération ?</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="faq-answer px-4 text-gray-600">
+            <p class="py-3">Oui ! Vous recevrez un fichier modifiable que vous pourrez ajuster à tout moment. Vous pouvez également relancer le bot pour générer une nouvelle version.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item mb-4">
+          <button class="faq-question w-full flex justify-between items-center text-left font-bold py-4 px-4 bg-white rounded-lg shadow-sm">
+            <span>Le service est-il vraiment gratuit ?</span>
+            <i class="fas fa-chevron-down transition-transform"></i>
+          </button>
+          <div class="faq-answer px-4 text-gray-600">
+            <p class="py-3">Absolument ! CV Builder est 100% gratuit sans aucune limitation cachée. Nous croyons que tout le monde devrait avoir accès à des outils professionnels.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </section>  <!-- Footer -->  <footer class="text-center py-6 bg-[var(--secondary-orange)] text-[var(--primary-purple)] font-semibold">
-    © 2025 CV Builder — Tous droits réservés
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6" style="color: var(--primary);">📬 Contactez-nous</h2>
+        <p class="text-gray-600 mb-8">Une question non résolue ? Besoin d'aide ? Notre équipe est là pour vous aider.</p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://t.me/Temoin005Bot" class="bg-[var(--primary)] text-white py-3 px-8 rounded-full font-bold hover:bg-[var(--dark)] transition-all inline-block">
+            <i class="fab fa-telegram mr-2"></i> Chat avec le bot
+          </a>
+          <a href="mailto:support@cvbuilder.com" class="border border-[var(--primary)] text-[var(--primary)] py-3 px-8 rounded-full font-bold hover:bg-[var(--primary)] hover:text-white transition-all inline-block">
+            <i class="fas fa-envelope mr-2"></i> Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10" style="background: var(--dark); color: white;">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <div class="text-xl font-bold mb-2" style="color: var(--accent);">
+            <i class="fas fa-robot mr-2"></i>CV Builder
+          </div>
+          <p class="text-gray-400">L'outil ultime pour créer un CV parfait</p>
+        </div>
+        
+        <div class="flex gap-6">
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-telegram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>© 2023 CV Builder. Tous droits réservés.</p>
+      </div>
+    </div>
   </footer>
-</body></html>
+
+  <script>
+    // Menu mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.innerHTML = navLinks.classList.contains('active') 
+        ? '<i class="fas fa-times"></i>' 
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // FAQ Accordéon
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentNode;
+        item.classList.toggle('active');
+        
+        const icon = button.querySelector('i');
+        icon.style.transform = item.classList.contains('active') 
+          ? 'rotate(180deg)' 
+          : 'rotate(0)';
+      });
+    });
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        
+        // Fermer le menu mobile si ouvert
+        if (navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      });
+    });
+  </script>
+</body>
+  </html>
