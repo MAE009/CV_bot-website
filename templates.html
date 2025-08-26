@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Builder | Templates Disponibles</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6D3AFF;
+      --secondary: #FF9E3D;
+      --accent: #FFD166;
+      --dark: #292F36;
+      --light: #F7FFF7;
+      --mint: #4D9078;
+      --blue: #5EC2D0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      padding-top: 80px;
+      background-color: #f8fafc;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+    }
+
+    /* Styles pour le menu mobile */
+    .nav-container {
+      position: relative;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    /* Styles pour les carrousels */
+    .carousel-container {
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE/Edge */
+    }
+
+    .carousel-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    .carousel {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem 0.5rem;
+    }
+
+    .carousel-item {
+      flex: 0 0 auto;
+      width: 300px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .carousel-img {
+      height: 200px;
+      background-color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+    }
+
+    .carousel-content {
+      padding: 1.5rem;
+    }
+
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #cbd5e1;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .carousel-dot.active {
+      background-color: var(--primary);
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .nav-links.active {
+        max-height: 300px;
+        padding: 1rem 0;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 1rem 2rem;
+        color: var(--dark);
+        transition: background 0.3s;
+      }
+
+      .nav-links a:hover {
+        background: rgba(109, 58, 255, 0.1);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+      
+      .carousel-item {
+        width: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation améliorée -->
+  <header class="fixed w-full top-0 z-50 bg-white shadow-md">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center nav-container">
+      <div class="logo text-2xl font-bold" style="color: var(--primary);">
+        <i class="fas fa-robot mr-2"></i>CV Builder
+      </div>
+      
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-links">
+        <li><a href="index.html" class="hover:text-[var(--primary)] font-medium">Accueil</a></li>
+        <li><a href="#simple" class="hover:text-[var(--primary)] font-medium">Simple ATS</a></li>
+        <li><a href="#moderne" class="hover:text-[var(--primary)] font-medium">Moderne</a></li>
+        <li><a href="#creatif" class="hover:text-[var(--primary)] font-medium">Créatif</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient text-white pt-20 pb-16">
+    <div class="container mx-auto px-6 text-center">
+      <a href="index.html" class="inline-flex items-center text-white mb-8 hover:underline">
+        <i class="fas fa-arrow-left mr-2"></i> Retour à l'accueil
+      </a>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Nos Templates de CV</h1>
+      <p class="text-xl max-w-2xl mx-auto">Choisissez le design qui correspond à votre personnalité professionnelle</p>
+    </div>
+  </section>
+
+  <!-- Section Templates Simple ATS -->
+  <section id="simple" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">Templates Simple ATS</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Designs optimisés pour les systèmes de suivi de candidatures (ATS) avec une structure claire et professionnelle</p>
+      </div>
+      
+      <div class="carousel-container">
+        <div class="carousel">
+          <!-- Template 1 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Classique</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Classique</h3>
+              <p class="text-gray-600 mb-4">Structure traditionnelle, idéale pour les secteurs conservateurs</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+          
+          <!-- Template 2 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Professionnel</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Professionnel</h3>
+              <p class="text-gray-600 mb-4">Design épuré mettant en valeur votre expérience</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+          
+          <!-- Template 3 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Minimaliste</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Minimaliste</h3>
+              <p class="text-gray-600 mb-4">Simplicité et efficacité pour une lecture optimale</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+          
+          <!-- Template 4 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Fonctionnel</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Fonctionnel</h3>
+              <p class="text-gray-600 mb-4">Mise en avant des compétences plutôt que de la chronologie</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="carousel-nav">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Templates Moderne -->
+  <section id="moderne" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">Templates Modernes</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Designs contemporains avec une touche d'innovation pour se démarquer</p>
+      </div>
+      
+      <div class="carousel-container">
+        <div class="carousel">
+          <!-- Template 1 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Contemporain</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Contemporain</h3>
+              <p class="text-gray-600 mb-4">Lignes épurées et typographie moderne</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+          
+          <!-- Template 2 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Élégant</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Élégant</h3>
+              <p class="text-gray-600 mb-4">Design sophistiqué pour les postes à responsabilité</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+          
+          <!-- Template 3 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Innovant</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Innovant</h3>
+              <p class="text-gray-600 mb-4">Mise en page originale qui attire l'attention</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+          
+          <!-- Template 4 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Dynamique</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Dynamique</h3>
+              <p class="text-gray-600 mb-4">Énergique et moderne, parfait pour les jeunes professionnels</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="carousel-nav">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Templates Créatif -->
+  <section id="creatif" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">Templates Créatifs</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Designs originaux et artistiques pour les métiers de la création</p>
+      </div>
+      
+      <div class="carousel-container">
+        <div class="carousel">
+          <!-- Template 1 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Artistique</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Artistique</h3>
+              <p class="text-gray-600 mb-4">Pour les métiers du design et des arts graphiques</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+          
+          <!-- Template 2 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Original</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Original</h3>
+              <p class="text-gray-600 mb-4">Hors des sentiers battus pour une candidature mémorable</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+          
+          <!-- Template 3 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Coloré</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Coloré</h3>
+              <p class="text-gray-600 mb-4">Utilisation audacieuse de la couleur pour se démarquer</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+          
+          <!-- Template 4 -->
+          <div class="carousel-item">
+            <div class="carousel-img">
+              <span>Image du Template Portfolio</span>
+            </div>
+            <div class="carousel-content">
+              <h3 class="text-xl font-bold mb-2">Portfolio</h3>
+              <p class="text-gray-600 mb-4">Intègre des espaces dédiés pour présenter vos réalisations</p>
+              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="carousel-nav">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16" style="background: var(--dark); color: white;">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-6">Prêt à créer votre CV ?</h2>
+      <p class="text-xl max-w-2xl mx-auto mb-8">Choisissez votre template préféré et générez votre CV en quelques minutes</p>
+      <a href="https://t.me/Temoin005Bot" class="inline-block bg-[var(--accent)] text-[var(--dark)] font-bold py-3 px-8 rounded-full hover:bg-[var(--primary)] hover:text-white transition-all">
+        <i class="fab fa-telegram mr-2"></i> Commencer maintenant
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10" style="background: var(--dark); color: white;">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <div class="text-xl font-bold mb-2" style="color: var(--accent);">
+            <i class="fas fa-robot mr-2"></i>CV Builder
+          </div>
+          <p class="text-gray-400">L'outil ultime pour créer un CV parfait</p>
+        </div>
+        
+        <div class="flex gap-6">
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-telegram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>© 2023 CV Builder. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Gestion du menu mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      navLinks.classList.toggle('active');
+      
+      // Animation de l'icône
+      if (navLinks.classList.contains('active')) {
+        menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+      } else {
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+    });
+
+    // Fermer le menu quand un lien est cliqué (sur mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      });
+    });
+
+    // Navigation par ancres
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Navigation des carrousels (simplifiée pour cet exemple)
+    document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        // Enlever la classe active de tous les points
+        document.querySelectorAll('.carousel-dot').forEach(d => {
+          d.classList.remove('active');
+        });
+        
+        // Ajouter la classe active au point cliqué
+        dot.classList.add('active');
+        
+        // Ici, vous pourriez ajouter la logique pour faire défiler le carrousel
+        // à la position correspondante
+      });
+    });
+  </script>
+</body>
+</html>
