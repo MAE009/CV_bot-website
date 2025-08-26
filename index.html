@@ -3,7 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV Builder | Guides Complets</title>
+  <title>CV Builder - Créateur de CV Professionnel sur Telegram | Templates Gratuits</title>
+  <meta name="description" content="Créez un CV professionnel en 5 minutes avec notre bot Telegram. Choisissez parmi nos templates modernes, simples ATS ou créatifs. Génération PDF gratuite et sans inscription.">
+  <meta name="keywords" content="CV builder, créer CV, bot Telegram CV, template CV, CV professionnel, générateur CV, PDF CV, modèle CV, CV gratuit">
+  <meta name="author" content="CV Builder">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.votredomaine.com">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.votredomaine.com/">
+  <meta property="og:title" content="CV Builder - Créateur de CV Professionnel sur Telegram">
+  <meta property="og:description" content="Créez un CV professionnel en 5 minutes avec notre bot Telegram. Templates modernes et gratuits.">
+  <meta property="og:image" content="https://www.votredomaine.com/images/og-image.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.votredomaine.com/">
+  <meta property="twitter:title" content="CV Builder - Créateur de CV Professionnel sur Telegram">
+  <meta property="twitter:description" content="Créez un CV professionnel en 5 minutes avec notre bot Telegram. Templates modernes et gratuits.">
+  <meta property="twitter:image" content="https://www.votredomaine.com/images/twitter-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CV Builder",
+    "url": "https://www.votredomaine.com",
+    "description": "Application de création de CV professionnels via Telegram",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Telegram",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -28,7 +74,7 @@
       font-family: 'Inter', system-ui, sans-serif;
       line-height: 1.6;
       color: var(--dark);
-      padding-top: 80px; /* Pour compenser le header fixe */
+      padding-top: 80px;
     }
 
     .hero-gradient {
@@ -136,12 +182,12 @@
     }
   </style>
 </head>
-<body>
+<body itemscope itemtype="https://schema.org/WebPage">
   <!-- Navigation améliorée -->
   <header class="fixed w-full top-0 z-50 bg-white shadow-md">
     <nav class="container mx-auto px-6 py-4 flex justify-between items-center nav-container">
       <div class="logo text-2xl font-bold" style="color: var(--primary);">
-        <i class="fas fa-robot mr-2"></i>CV Builder
+        <i class="fas fa-robot mr-2"></i><span itemprop="name">CV Builder</span>
       </div>
       
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
@@ -161,7 +207,7 @@
   <!-- Hero Section -->
   <section id="accueil" class="hero-gradient text-white pt-20 pb-20">
     <div class="container mx-auto px-6 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Votre Carrière, Notre Expertise</h1>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6" itemprop="headline">Votre Carrière, Notre Expertise</h1>
       <p class="text-xl max-w-2xl mx-auto mb-8">Créez un CV professionnel en 5 minutes avec notre bot Telegram</p>
       <div class="button-group flex flex-col sm:flex-row justify-center gap-4">
         <a href="https://t.me/Temoin005Bot" class="inline-block bg-[var(--accent)] text-[var(--dark)] font-bold py-3 px-8 rounded-full hover:bg-[var(--primary)] hover:text-white transition-all">
