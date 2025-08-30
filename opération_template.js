@@ -41,23 +41,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // =======================
-// Navigation des carrousels
-// =======================
-document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        // Enlever la classe active de tous les points
-        document.querySelectorAll('.carousel-dot').forEach(d => {
-            d.classList.remove('active');
-        });
-
-        // Ajouter la classe active au point cliqué
-        dot.classList.add('active');
-
-        // Ici, ajouter la logique pour faire défiler le carrousel
-    });
-});
-
-// =======================
 // Données des templates
 // =======================
 const templates = {
