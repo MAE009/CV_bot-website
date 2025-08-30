@@ -219,10 +219,8 @@
             <div class="carousel-img">
               <span>Image du Template Classique</span>
             </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Classique</h3>
-              <p class="text-gray-600 mb-4">Structure traditionnelle, idéale pour les secteurs conservateurs</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
+            <div class="carousel-contentr">
+                <div id="carousel-ats" class="carousel"></div>
             </div>
           </div>
           
@@ -447,60 +445,6 @@
     </div>
   </footer>
 
-  <script>
-    // Gestion du menu mobile
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      navLinks.classList.toggle('active');
-      
-      // Animation de l'icône
-      if (navLinks.classList.contains('active')) {
-        menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-      } else {
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-      }
-    });
 
-    // Fermer le menu quand un lien est cliqué (sur mobile)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          navLinks.classList.remove('active');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-      });
-    });
-
-    // Navigation par ancres
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Navigation des carrousels (simplifiée pour cet exemple)
-    document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        // Enlever la classe active de tous les points
-        document.querySelectorAll('.carousel-dot').forEach(d => {
-          d.classList.remove('active');
-        });
-        
-        // Ajouter la classe active au point cliqué
-        dot.classList.add('active');
-        
-        // Ici, vous pourriez ajouter la logique pour faire défiler le carrousel
-        // à la position correspondante
-      });
-    });
-  </script>
 </body>
 </html>
