@@ -80,6 +80,7 @@
       transform: translateY(-5px);
     }
 
+    /*
     .carousel-img {
       height: 200px;
       background-color: #e5e7eb;
@@ -88,7 +89,21 @@
       justify-content: center;
       color: #6b7280;
     }
+    */
+    .carousel-img {
+      width: 100%;
+      height: auto; /* ou une hauteur fixe si tu veux un carrousel uniforme */
+      overflow: hidden;
+      border-radius: 12px; /* optionnel */
+    }
 
+   .carousel-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover; /* garde le recadrage propre si tu fixes une hauteur */
+    }
+    /*-- Fin ajout -->*/
     .carousel-content {
       padding: 1.5rem;
     }
