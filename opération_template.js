@@ -80,7 +80,7 @@ const templates = {
         { image: "Assets/Cv/ats-fonctionnel.jpg", titre: "Fonctionnel", desc: "Mise en avant des compétences" }
     ],
     moderne: [
-        { image: "Assets/Cv/moderne-contemporain.jpg", titre: "Contemporain", desc: "Lignes épurées et modernes" },
+        { image: "Assets/Cv/Cv_restaurant.jpg", titre: "Contemporain", desc: "Lignes épurées et modernes" },
         { image: "Assets/Cv/moderne-elegant.jpg", titre: "Élégant", desc: "Pour postes à responsabilité" },
         { image: "Assets/Cv/moderne-innovant.jpg", titre: "Innovant", desc: "Mise en page originale" },
         { image: "Assets/Cv/moderne-dynamique.jpg", titre: "Dynamique", desc: "Énergique et moderne" }
