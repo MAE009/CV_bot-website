@@ -62,7 +62,7 @@ document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
 // =======================
 const templates = {
     ats: [
-        { image: "Assets/Cv/ats-classique.jpg", titre: "Classique", desc: "Structure claire et pro" },
+        { image: "Assets/Cv/Cv_restaurant.jpg", titre: "Classique", desc: "Structure claire et pro" },
         { image: "Assets/Cv/ats-minimaliste.jpg", titre: "Minimaliste", desc: "Simplicité et efficacité" }
     ],
     moderne: [
