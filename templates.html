@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Builder | Templates Disponibles</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="opération_template.js" defer> </script>
+  <script src="opération_template.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -81,30 +81,19 @@
       transform: translateY(-5px);
     }
 
-    /*
     .carousel-img {
       height: 200px;
-      background-color: #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6b7280;
-    }
-    */
-    .carousel-img {
-      width: 100%;
-      height: auto; /* ou une hauteur fixe si tu veux un carrousel uniforme */
       overflow: hidden;
-      border-radius: 12px; /* optionnel */
+      position: relative;
     }
 
-   .carousel-img img {
+    .carousel-img img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
-      object-fit: cover; /* garde le recadrage propre si tu fixes une hauteur */
     }
-    /*-- Fin ajout -->*/
+
     .carousel-content {
       padding: 1.5rem;
     }
@@ -213,46 +202,8 @@
       </div>
       
       <div class="carousel-container">
-        <div class="carousel">
-          <!-- Template 1 -->
-          <div id="carousel-ats" class="carousel"></div>
-          
-          
-          <!-- Template 2 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <span>Image du Template Professionnel</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Professionnel</h3>
-              <p class="text-gray-600 mb-4">Design épuré mettant en valeur votre expérience</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
-          
-          <!-- Template 3 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <span>Image du Template Minimaliste</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Minimaliste</h3>
-              <p class="text-gray-600 mb-4">Simplicité et efficacité pour une lecture optimale</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
-          
-          <!-- Template 4 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <span>Image du Template Fonctionnel</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Fonctionnel</h3>
-              <p class="text-gray-600 mb-4">Mise en avant des compétences plutôt que de la chronologie</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
+        <div class="carousel" id="carousel-ats">
+          <!-- Le contenu sera généré par JavaScript -->
         </div>
       </div>
       
@@ -274,54 +225,8 @@
       </div>
       
       <div class="carousel-container">
-        <div class="carousel">
-          <!-- Template 1 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <span>Image du Template Contemporain</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Contemporain</h3>
-              <p class="text-gray-600 mb-4">Lignes épurées et typographie moderne</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
-          
-          <!-- Template 2 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <span>Image du Template Élégant</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Élégant</h3>
-              <p class="text-gray-600 mb-4">Design sophistiqué pour les postes à responsabilité</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
-          
-          <!-- Template 3 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <span>Image du Template Innovant</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Innovant</h3>
-              <p class="text-gray-600 mb-4">Mise en page originale qui attire l'attention</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
-          
-          <!-- Template 4 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <span>Image du Template Dynamique</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Dynamique</h3>
-              <p class="text-gray-600 mb-4">Énergique et moderne, parfait pour les jeunes professionnels</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
+        <div class="carousel" id="carousel-moderne">
+          <!-- Le contenu sera généré par JavaScript -->
         </div>
       </div>
       
@@ -343,55 +248,8 @@
       </div>
       
       <div class="carousel-container">
-        <div class="carousel">
-          <!-- Template 1 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <img src="Assets/Cv/Cv_restaurant.jpg"/>
-              <span>Image du Template Artistique</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Artistique</h3>
-              <p class="text-gray-600 mb-4">Pour les métiers du design et des arts graphiques</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
-          
-          <!-- Template 2 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <span>Image du Template Original</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Original</h3>
-              <p class="text-gray-600 mb-4">Hors des sentiers battus pour une candidature mémorable</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
-          
-          <!-- Template 3 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <span>Image du Template Coloré</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Coloré</h3>
-              <p class="text-gray-600 mb-4">Utilisation audacieuse de la couleur pour se démarquer</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
-          
-          <!-- Template 4 -->
-          <div class="carousel-item">
-            <div class="carousel-img">
-              <span>Image du Template Portfolio</span>
-            </div>
-            <div class="carousel-content">
-              <h3 class="text-xl font-bold mb-2">Portfolio</h3>
-              <p class="text-gray-600 mb-4">Intègre des espaces dédiés pour présenter vos réalisations</p>
-              <a href="#" class="font-semibold" style="color: var(--primary);">Voir le template →</a>
-            </div>
-          </div>
+        <div class="carousel" id="carousel-creatif">
+          <!-- Le contenu sera généré par JavaScript -->
         </div>
       </div>
       
@@ -438,7 +296,5 @@
       </div>
     </div>
   </footer>
-
-
 </body>
 </html>
