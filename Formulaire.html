@@ -676,10 +676,30 @@
 
     function generateCV() {
       saveFormData();
-      // Rediriger vers la page de sélection des templates avec les données
+    
+      // 1️⃣ Sauvegarde dans localStorage
       localStorage.setItem('cvData', JSON.stringify(cvData));
+    
+      // 2️⃣ Création du fichier JSON à télécharger
+      const dataStr = JSON.stringify(cvData, null, 2); // format propre
+      const blob = new Blob([dataStr], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+    
+      // 3️⃣ Création d’un lien de téléchargement invisible
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = "cv_data.json";  // nom du fichier
+      document.body.appendChild(a);
+      a.click(); // Lance le téléchargement
+      document.body.removeChild(a);
+    
+      // 4️⃣ Nettoyage du blob
+      URL.revokeObjectURL(url);
+    
+      // 5️⃣ Redirection vers le choix des templates
       window.location.href = 'templates.html?generate=true';
     }
+
   </script>
 </body>
 </html>
