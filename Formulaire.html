@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Builder | Saisie des Informations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #FF6B6B;
+      --secondary: #4ECDC4;
+      --accent: #FFE66D;
+      --dark: #292F36;
+      --light: #F7FFF7;
+      --primary-light: #FF8E8E;
+      --secondary-light: #6EDDD6;
+      --accent-light: #FFF192;
+      --dark-light: #3A4750;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: #f8fafc;
+      color: var(--dark);
+    }
+
+    .form-section {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .section-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1.5rem;
+      border-radius: 12px 12px 0 0;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--secondary-light);
+      transform: translateY(-2px);
+    }
+
+    .dynamic-item {
+      background: #f8fafc;
+      border: 2px dashed #cbd5e1;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+
+    .remove-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progress-bar {
+      background: #e2e8f0;
+      border-radius: 10px;
+      height: 8px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      height: 100%;
+      transition: width 0.5s ease;
+    }
+
+    .save-indicator {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--secondary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .save-indicator.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+  <!-- Navigation -->
+  <header class="bg-white shadow-md">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="logo text-2xl font-bold" style="color: var(--primary);">
+        <i class="fas fa-robot mr-2"></i>CV Builder
+      </div>
+      <div class="flex gap-4">
+        <a href="index.html" class="btn-secondary">
+          <i class="fas fa-home mr-2"></i>Accueil
+        </a>
+        <a href="templates.html" class="btn-primary">
+          <i class="fas fa-palette mr-2"></i>Templates
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenu principal -->
+  <main class="container mx-auto px-6 py-8">
+    <!-- En-tête -->
+    <div class="text-center mb-8">
+      <h1 class="text-4xl font-bold mb-4" style="color: var(--primary);">Créez votre CV</h1>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Remplissez vos informations une seule fois. Vous pourrez générer votre CV immédiatement ou plus tard.
+      </p>
+    </div>
+
+    <!-- Barre de progression -->
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width: 20%;"></div>
+    </div>
+
+    <!-- Indicateur de sauvegarde -->
+    <div class="save-indicator" id="saveIndicator">
+      <i class="fas fa-check mr-2"></i>Données sauvegardées
+    </div>
+
+    <!-- Formulaire -->
+    <form id="cvForm">
+      <!-- Section Informations Personnelles -->
+      <section class="form-section">
+        <div class="section-header">
+          <h2 class="text-2xl font-bold">
+            <i class="fas fa-user mr-2"></i>Informations Personnelles
+          </h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="form-group">
+              <label class="form-label">Nom *</label>
+              <input type="text" id="nom" name="nom" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Prénom *</label>
+              <input type="text" id="prenom" name="prenom" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Poste recherché *</label>
+              <input type="text" id="poste" name="poste" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Ville *</label>
+              <input type="text" id="ville" name="ville" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Téléphone</label>
+              <input type="tel" id="tel" name="tel" class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Autres informations (LinkedIn, site web...)</label>
+            <input type="text" id="autre" name="autre" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Résumé professionnel *</label>
+            <textarea id="resume" name="resume" class="form-input" rows="4" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Photo (optionnel)</label>
+            <input type="file" id="photo" name="photo" class="form-input" accept="image/*">
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Expériences Professionnelles -->
+      <section class="form-section">
+        <div class="section-header">
+          <h2 class="text-2xl font-bold">
+            <i class="fas fa-briefcase mr-2"></i>Expériences Professionnelles
+          </h2>
+        </div>
+        <div class="p-6">
+          <div id="experiences-container">
+            <!-- Les expériences seront ajoutées ici dynamiquement -->
+          </div>
+          <button type="button" onclick="addExperience()" class="btn-secondary">
+            <i class="fas fa-plus mr-2"></i>Ajouter une expérience
+          </button>
+        </div>
+      </section>
+
+      <!-- Section Formations -->
+      <section class="form-section">
+        <div class="section-header">
+          <h2 class="text-2xl font-bold">
+            <i class="fas fa-graduation-cap mr-2"></i>Formations
+          </h2>
+        </div>
+        <div class="p-6">
+          <div id="formations-container">
+            <!-- Les formations seront ajoutées ici dynamiquement -->
+          </div>
+          <button type="button" onclick="addFormation()" class="btn-secondary">
+            <i class="fas fa-plus mr-2"></i>Ajouter une formation
+          </button>
+        </div>
+      </section>
+
+      <!-- Section Compétences -->
+      <section class="form-section">
+        <div class="section-header">
+          <h2 class="text-2xl font-bold">
+            <i class="fas fa-cogs mr-2"></i>Compétences
+          </h2>
+        </div>
+        <div class="p-6">
+          <div id="competences-container">
+            <!-- Les compétences seront ajoutées ici dynamiquement -->
+          </div>
+          <button type="button" onclick="addCompetence()" class="btn-secondary">
+            <i class="fas fa-plus mr-2"></i>Ajouter une compétence
+          </button>
+        </div>
+      </section>
+
+      <!-- Section Langues -->
+      <section class="form-section">
+        <div class="section-header">
+          <h2 class="text-2xl font-bold">
+            <i class="fas fa-language mr-2"></i>Langues
+          </h2>
+        </div>
+        <div class="p-6">
+          <div id="langues-container">
+            <!-- Les langues seront ajoutées ici dynamiquement -->
+          </div>
+          <button type="button" onclick="addLangue()" class="btn-secondary">
+            <i class="fas fa-plus mr-2"></i>Ajouter une langue
+          </button>
+        </div>
+      </section>
+
+      <!-- Boutons d'action -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+        <button type="button" onclick="saveForLater()" class="btn-secondary">
+          <i class="fas fa-save mr-2"></i>Sauvegarder pour plus tard
+        </button>
+        <button type="button" onclick="generateCV()" class="btn-primary">
+          <i class="fas fa-file-pdf mr-2"></i>Générer mon CV maintenant
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    // Données par défaut pour pré-remplir (optionnel)
+    const defaultData = {
+      infos: {
+        nom: "MAKOSSO",
+        prenom: "Ducerne Dieu-merci",
+        poste: "Étudiant en génie industriel et maintenance",
+        ville: "Pointe-Noire, Congo Brazzaville",
+        tel: "+242 068620127",
+        email: "makossoducerne@gmail.com",
+        autre: "Lien LinkedIn : Oui",
+        resume: "Étudiant motivé en génie industriel et maintenance, avec une expérience en milieu professionnel acquise au sein de DGC Congo. Passionné par la maintenance corrective et préventive, le suivi technique des équipements, et doté de bases solides en conception et analyse technique."
+      },
+      experiences: [
+        {
+          poste: "Stagiaire en génie industriel et maintenance",
+          entreprise: "DGC Congo",
+          date: "Octobre - Novembre 2025",
+          description: "Découverte et participation aux activités de maintenance corrective et préventive, suivi technique des équipements et apprentissage en milieu professionnel.",
+          realisations: "Réalisation d'un projet tutoré portant sur l'étude de l'installation électrique d'un bâtiment à usage hôtelier R+1."
+        }
+      ],
+      formations: [
+        {
+          diplome: "Baccalauréat",
+          etablissement: "L'Alpha",
+          date_debut: "2022",
+          date_fin: "2023",
+          lieu: "Tchiali"
+        },
+        {
+          diplome: "BEPC",
+          etablissement: "L'Alpha",
+          date_debut: "2019",
+          date_fin: "2020",
+          lieu: "Tchiali"
+        }
+      ],
+      competences: [
+        { comp: "SolidWorks" },
+        { comp: "AMDEC" },
+        { comp: "Word" }
+      ],
+      langues: [
+        { nom: "Français (natif)" },
+        { nom: "Anglais" }
+      ]
+    };
+
+    // Charger les données sauvegardées ou utiliser les données par défaut
+    let cvData = JSON.parse(localStorage.getItem('cvData')) || defaultData;
+
+    // Initialiser le formulaire
+    document.addEventListener('DOMContentLoaded', function() {
+      loadFormData();
+      updateProgress();
+      
+      // Auto-sauvegarde lors de la modification
+      document.getElementById('cvForm').addEventListener('input', function() {
+        saveFormData();
+      });
+    });
+
+    // Charger les données dans le formulaire
+    function loadFormData() {
+      const infos = cvData.infos || {};
+      
+      // Informations de base
+      document.getElementById('nom').value = infos.nom || '';
+      document.getElementById('prenom').value = infos.prenom || '';
+      document.getElementById('poste').value = infos.poste || '';
+      document.getElementById('ville').value = infos.ville || '';
+      document.getElementById('tel').value = infos.tel || '';
+      document.getElementById('email').value = infos.email || '';
+      document.getElementById('autre').value = infos.autre || '';
+      document.getElementById('resume').value = infos.resume || '';
+
+      // Charger les sections dynamiques
+      loadExperiences();
+      loadFormations();
+      loadCompetences();
+      loadLangues();
+    }
+
+    // Sauvegarder les données du formulaire
+    function saveFormData() {
+      cvData.infos = {
+        nom: document.getElementById('nom').value,
+        prenom: document.getElementById('prenom').value,
+        poste: document.getElementById('poste').value,
+        ville: document.getElementById('ville').value,
+        tel: document.getElementById('tel').value,
+        email: document.getElementById('email').value,
+        autre: document.getElementById('autre').value,
+        resume: document.getElementById('resume').value
+      };
+
+      localStorage.setItem('cvData', JSON.stringify(cvData));
+      showSaveIndicator();
+      updateProgress();
+    }
+
+    // Gestion des expériences
+    function loadExperiences() {
+      const container = document.getElementById('experiences-container');
+      container.innerHTML = '';
+      
+      (cvData.experiences || []).forEach((exp, index) => {
+        container.innerHTML += createExperienceHTML(exp, index);
+      });
+    }
+
+    function addExperience() {
+      if (!cvData.experiences) cvData.experiences = [];
+      cvData.experiences.push({
+        poste: '',
+        entreprise: '',
+        date: '',
+        description: '',
+        realisations: ''
+      });
+      loadExperiences();
+      saveFormData();
+    }
+
+    function removeExperience(index) {
+      cvData.experiences.splice(index, 1);
+      loadExperiences();
+      saveFormData();
+    }
+
+    function createExperienceHTML(exp, index) {
+      return `
+        <div class="dynamic-item">
+          <button type="button" class="remove-btn" onclick="removeExperience(${index})">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="form-group">
+              <label class="form-label">Poste</label>
+              <input type="text" value="${exp.poste || ''}" 
+                     oninput="cvData.experiences[${index}].poste = this.value; saveFormData()" 
+                     class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Entreprise</label>
+              <input type="text" value="${exp.entreprise || ''}" 
+                     oninput="cvData.experiences[${index}].entreprise = this.value; saveFormData()" 
+                     class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Période</label>
+              <input type="text" value="${exp.date || ''}" 
+                     oninput="cvData.experiences[${index}].date = this.value; saveFormData()" 
+                     class="form-input" placeholder="Ex: Jan 2020 - Déc 2022">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea oninput="cvData.experiences[${index}].description = this.value; saveFormData()" 
+                      class="form-input" rows="3">${exp.description || ''}</textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Réalisations</label>
+            <textarea oninput="cvData.experiences[${index}].realisations = this.value; saveFormData()" 
+                      class="form-input" rows="2">${exp.realisations || ''}</textarea>
+          </div>
+        </div>
+      `;
+    }
+
+    // Gestion des formations (similaire aux expériences)
+    function loadFormations() {
+      const container = document.getElementById('formations-container');
+      container.innerHTML = '';
+      
+      (cvData.formations || []).forEach((formation, index) => {
+        container.innerHTML += createFormationHTML(formation, index);
+      });
+    }
+
+    function addFormation() {
+      if (!cvData.formations) cvData.formations = [];
+      cvData.formations.push({
+        diplome: '',
+        etablissement: '',
+        date_debut: '',
+        date_fin: '',
+        lieu: ''
+      });
+      loadFormations();
+      saveFormData();
+    }
+
+    function removeFormation(index) {
+      cvData.formations.splice(index, 1);
+      loadFormations();
+      saveFormData();
+    }
+
+    function createFormationHTML(formation, index) {
+      return `
+        <div class="dynamic-item">
+          <button type="button" class="remove-btn" onclick="removeFormation(${index})">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="form-group">
+              <label class="form-label">Diplôme</label>
+              <input type="text" value="${formation.diplome || ''}" 
+                     oninput="cvData.formations[${index}].diplome = this.value; saveFormData()" 
+                     class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Établissement</label>
+              <input type="text" value="${formation.etablissement || ''}" 
+                     oninput="cvData.formations[${index}].etablissement = this.value; saveFormData()" 
+                     class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date de début</label>
+              <input type="text" value="${formation.date_debut || ''}" 
+                     oninput="cvData.formations[${index}].date_debut = this.value; saveFormData()" 
+                     class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date de fin</label>
+              <input type="text" value="${formation.date_fin || ''}" 
+                     oninput="cvData.formations[${index}].date_fin = this.value; saveFormData()" 
+                     class="form-input">
+            </div>
+            <div class="form-group md:col-span-2">
+              <label class="form-label">Lieu</label>
+              <input type="text" value="${formation.lieu || ''}" 
+                     oninput="cvData.formations[${index}].lieu = this.value; saveFormData()" 
+                     class="form-input">
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Gestion des compétences
+    function loadCompetences() {
+      const container = document.getElementById('competences-container');
+      container.innerHTML = '';
+      
+      (cvData.competences || []).forEach((competence, index) => {
+        container.innerHTML += createCompetenceHTML(competence, index);
+      });
+    }
+
+    function addCompetence() {
+      if (!cvData.competences) cvData.competences = [];
+      cvData.competences.push({ comp: '' });
+      loadCompetences();
+      saveFormData();
+    }
+
+    function removeCompetence(index) {
+      cvData.competences.splice(index, 1);
+      loadCompetences();
+      saveFormData();
+    }
+
+    function createCompetenceHTML(competence, index) {
+      return `
+        <div class="dynamic-item">
+          <button type="button" class="remove-btn" onclick="removeCompetence(${index})">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="form-group">
+            <label class="form-label">Compétence</label>
+            <input type="text" value="${competence.comp || ''}" 
+                   oninput="cvData.competences[${index}].comp = this.value; saveFormData()" 
+                   class="form-input" placeholder="Ex: SolidWorks, AMDEC, Word...">
+          </div>
+        </div>
+      `;
+    }
+
+    // Gestion des langues
+    function loadLangues() {
+      const container = document.getElementById('langues-container');
+      container.innerHTML = '';
+      
+      (cvData.langues || []).forEach((langue, index) => {
+        container.innerHTML += createLangueHTML(langue, index);
+      });
+    }
+
+    function addLangue() {
+      if (!cvData.langues) cvData.langues = [];
+      cvData.langues.push({ nom: '' });
+      loadLangues();
+      saveFormData();
+    }
+
+    function removeLangue(index) {
+      cvData.langues.splice(index, 1);
+      loadLangues();
+      saveFormData();
+    }
+
+    function createLangueHTML(langue, index) {
+      return `
+        <div class="dynamic-item">
+          <button type="button" class="remove-btn" onclick="removeLangue(${index})">
+            <i class="fas fa-times"></i>
+          </button>
+          <div class="form-group">
+            <label class="form-label">Langue</label>
+            <input type="text" value="${langue.nom || ''}" 
+                   oninput="cvData.langues[${index}].nom = this.value; saveFormData()" 
+                   class="form-input" placeholder="Ex: Français (natif), Anglais (intermédiaire)...">
+          </div>
+        </div>
+      `;
+    }
+
+    // Fonctions utilitaires
+    function showSaveIndicator() {
+      const indicator = document.getElementById('saveIndicator');
+      indicator.classList.add('show');
+      setTimeout(() => {
+        indicator.classList.remove('show');
+      }, 2000);
+    }
+
+    function updateProgress() {
+      let progress = 20; // Base
+      const infos = cvData.infos || {};
+      
+      // Vérifier les informations de base
+      if (infos.nom && infos.prenom && infos.poste) progress += 20;
+      if (infos.email && infos.ville) progress += 10;
+      if (infos.resume) progress += 10;
+      
+      // Vérifier les sections
+      if (cvData.experiences && cvData.experiences.length > 0) progress += 15;
+      if (cvData.formations && cvData.formations.length > 0) progress += 15;
+      if (cvData.competences && cvData.competences.length > 0) progress += 10;
+      
+      document.getElementById('progressFill').style.width = Math.min(progress, 100) + '%';
+    }
+
+    function saveForLater() {
+      saveFormData();
+      alert('Vos informations ont été sauvegardées ! Vous pourrez y accéder plus tard pour générer votre CV.');
+    }
+
+    function generateCV() {
+      saveFormData();
+      // Rediriger vers la page de sélection des templates avec les données
+      localStorage.setItem('cvData', JSON.stringify(cvData));
+      window.location.href = 'templates.html?generate=true';
+    }
+  </script>
+</body>
+</html>
