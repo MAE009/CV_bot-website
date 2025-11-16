@@ -452,7 +452,7 @@
         preview.src = infos.photo_base64;
         container.classList.remove('hidden');
       }
-
+      loadPhoto()
       // Charger les sections dynamiques
       loadExperiences();
       loadFormations();
@@ -726,34 +726,51 @@
       document.getElementById('progressFill').style.width = Math.min(progress, 100) + '%';
     }
 
-    // ✅ NOUVELLE FONCTION : Gestion de l'upload
+    // ✅ AJOUTER CES 3 FONCTIONS APRÈS LES DONNÉES PAR DÉFAUT :
+
+    // Fonction pour gérer l'upload de photo
     function handlePhotoUpload(input) {
       const file = input.files[0];
       if (file) {
-        // Vérification taille (2MB max)
+        // Vérifier la taille du fichier (max 2MB)
         if (file.size > 2 * 1024 * 1024) {
           alert('La photo est trop volumineuse. Maximum 2MB autorisé.');
           return;
         }
     
+        // ✅ LE CODE BASE64 VA ICI :
         const reader = new FileReader();
         reader.onload = function(e) {
-          cvData.infos.photo_base64 = e.target.result; // ✅ Conversion Base64
+          cvData.infos.photo_base64 = e.target.result; // ✅ Base64 string
+          
           // Afficher l'aperçu
-          document.getElementById('photo-preview').src = e.target.result;
-          document.getElementById('photo-preview-container').classList.remove('hidden');
+          const preview = document.getElementById('photo-preview');
+          const container = document.getElementById('photo-preview-container');
+          preview.src = e.target.result;
+          container.classList.remove('hidden');
+          
           saveFormData();
         };
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(file); // ✅ CETTE LIGNE CONVERTIT EN BASE64
       }
     }
     
-    // ✅ NOUVELLE FONCTION : Suppression photo
+    // Fonction pour supprimer la photo
     function removePhoto() {
       cvData.infos.photo_base64 = null;
       document.getElementById('photo').value = '';
       document.getElementById('photo-preview-container').classList.add('hidden');
       saveFormData();
+    }
+    
+    // Fonction pour charger la photo existante
+    function loadPhoto() {
+      if (cvData.infos && cvData.infos.photo_base64) {
+        const preview = document.getElementById('photo-preview');
+        const container = document.getElementById('photo-preview-container');
+        preview.src = cvData.infos.photo_base64;
+        container.classList.remove('hidden');
+      }
     }
 
     function saveForLater() {
