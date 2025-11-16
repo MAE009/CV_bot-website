@@ -77,6 +77,10 @@ const templates = {
         { image: "Assets/Cv/Cv_restaurant.jpg", titre: "Classique", desc: "Structure claire et professionnelle" },
         { image: "Assets/Cv/ats-minimaliste.jpg", titre: "Minimaliste", desc: "Simplicité et efficacité" },
         { image: "Assets/Cv/ats-professionnel.jpg", titre: "Professionnel", desc: "Design épuré mettant en valeur votre expérience" },
+        { image: "Assets/Cv/ats-fonctionnel.jpg", titre: "Fonctionnel", desc: "Mise en avant des compétences" },
+        { image: "Assets/Cv/Cv_restaurant.jpg", titre: "Classique", desc: "Structure claire et professionnelle" },
+        { image: "Assets/Cv/ats-minimaliste.jpg", titre: "Minimaliste", desc: "Simplicité et efficacité" },
+        { image: "Assets/Cv/ats-professionnel.jpg", titre: "Professionnel", desc: "Design épuré mettant en valeur votre expérience" },
         { image: "Assets/Cv/ats-fonctionnel.jpg", titre: "Fonctionnel", desc: "Mise en avant des compétences" }
     ],
     moderne: [
