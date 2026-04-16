@@ -5,179 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CV Builder | Templates Disponibles</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="opération_template.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #6D3AFF;
-      --secondary: #FF9E3D;
-      --accent: #FFD166;
-      --dark: #292F36;
-      --light: #F7FFF7;
-      --mint: #4D9078;
-      --blue: #5EC2D0;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      padding-top: 80px;
-      background-color: #f8fafc;
-    }
-
-    .hero-gradient {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-    }
-
-    /* Styles pour le menu mobile */
-    .nav-container {
-      position: relative;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--primary);
-    }
-
-    /* Styles pour les carrousels */
-    .carousel-container {
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE/Edge */
-    }
-
-    .carousel-container::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
-    }
-
-    .carousel {
-      display: flex;
-      gap: 1.5rem;
-      padding: 1rem 0.5rem;
-    }
-
-    .carousel-item {
-      flex: 0 0 auto;
-      width: 300px;
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .carousel-item:hover {
-      transform: translateY(-5px);
-    }
-
-    .carousel-img {
-      height: 200px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .carousel-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .carousel-content {
-      padding: 1.5rem;
-    }
-
-    .carousel-nav {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .carousel-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #cbd5e1;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .carousel-dot.active {
-      background-color: var(--primary);
-    }
-
-    /* Responsive styles */
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-      }
-
-      .nav-links.active {
-        max-height: 300px;
-        padding: 1rem 0;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 1rem 2rem;
-        color: var(--dark);
-        transition: background 0.3s;
-      }
-
-      .nav-links a:hover {
-        background: rgba(109, 58, 255, 0.1);
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-      
-      .carousel-item {
-        width: 250px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/templates.css">
 </head>
 <body>
-  <!-- Navigation améliorée -->
-  <header class="fixed w-full top-0 z-50 bg-white shadow-md">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center nav-container">
-      <div class="logo text-2xl font-bold" style="color: var(--primary);">
+  <!-- Navigation -->
+  <header>
+    <nav class="container mx-auto">
+      <div class="logo">
         <i class="fas fa-robot mr-2"></i>CV Builder
       </div>
-      
+
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
         <i class="fas fa-bars"></i>
       </button>
-      
+
       <ul class="nav-links">
-        <li><a href="index.html" class="hover:text-[var(--primary)] font-medium">Accueil</a></li>
-        <li><a href="#simple" class="hover:text-[var(--primary)] font-medium">Simple ATS</a></li>
-        <li><a href="#moderne" class="hover:text-[var(--primary)] font-medium">Moderne</a></li>
-        <li><a href="#creatif" class="hover:text-[var(--primary)] font-medium">Créatif</a></li>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#simple">Simple ATS</a></li>
+        <li><a href="#moderne">Moderne</a></li>
+        <li><a href="#creatif">Créatif</a></li>
       </ul>
     </nav>
   </header>
@@ -200,13 +48,11 @@
         <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">Templates Simple ATS</h2>
         <p class="text-gray-600 max-w-2xl mx-auto">Designs optimisés pour les systèmes de suivi de candidatures (ATS) avec une structure claire et professionnelle</p>
       </div>
-      
+
       <div class="carousel-container">
-        <div class="carousel" id="carousel-ats">
-          <!-- Le contenu sera généré par JavaScript -->
-        </div>
+        <div class="carousel" id="carousel-ats"></div>
       </div>
-      
+
       <div class="carousel-nav">
         <div class="carousel-dot active"></div>
         <div class="carousel-dot"></div>
@@ -223,13 +69,11 @@
         <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">Templates Modernes</h2>
         <p class="text-gray-600 max-w-2xl mx-auto">Designs contemporains avec une touche d'innovation pour se démarquer</p>
       </div>
-      
+
       <div class="carousel-container">
-        <div class="carousel" id="carousel-moderne">
-          <!-- Le contenu sera généré par JavaScript -->
-        </div>
+        <div class="carousel" id="carousel-moderne"></div>
       </div>
-      
+
       <div class="carousel-nav">
         <div class="carousel-dot active"></div>
         <div class="carousel-dot"></div>
@@ -246,13 +90,11 @@
         <h2 class="text-3xl font-bold mb-4" style="color: var(--primary);">Templates Créatifs</h2>
         <p class="text-gray-600 max-w-2xl mx-auto">Designs originaux et artistiques pour les métiers de la création</p>
       </div>
-      
+
       <div class="carousel-container">
-        <div class="carousel" id="carousel-creatif">
-          <!-- Le contenu sera généré par JavaScript -->
-        </div>
+        <div class="carousel" id="carousel-creatif"></div>
       </div>
-      
+
       <div class="carousel-nav">
         <div class="carousel-dot active"></div>
         <div class="carousel-dot"></div>
@@ -267,14 +109,14 @@
     <div class="container mx-auto px-6 text-center">
       <h2 class="text-3xl font-bold mb-6">Prêt à créer votre CV ?</h2>
       <p class="text-xl max-w-2xl mx-auto mb-8">Choisissez votre template préféré et générez votre CV en quelques minutes</p>
-      <a href="https://t.me/Temoin005Bot" class="inline-block bg-[var(--accent)] text-[var(--dark)] font-bold py-3 px-8 rounded-full hover:bg-[var(--primary)] hover:text-white transition-all">
+      <a href="https://t.me/Temoin005Bot" class="cta-button">
         <i class="fab fa-telegram mr-2"></i> Commencer maintenant
       </a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-10" style="background: var(--dark); color: white;">
+  <footer>
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-4 md:mb-0">
@@ -283,18 +125,24 @@
           </div>
           <p class="text-gray-400">L'outil ultime pour créer un CV parfait</p>
         </div>
-        
+
         <div class="flex gap-6">
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-telegram"></i></a>
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
         </div>
       </div>
-      
+
       <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
         <p>© 2023 CV Builder. Tous droits réservés.</p>
       </div>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

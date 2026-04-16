@@ -10,30 +10,22 @@
   <meta name="robots" content="index, follow">
   <meta name="google-site-verification" content="S3xVlWtRGvCv18akWZ-z9mu3AKpchSxD-2U-YSdGDYE" />
   
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://www.votredomaine.com">
-  
-  <!-- Open Graph / Facebook -->
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.votredomaine.com/">
   <meta property="og:title" content="CV Builder - Créateur de CV Professionnel sur Telegram">
   <meta property="og:description" content="Créez un CV professionnel en 5 minutes avec notre bot Telegram. Templates modernes et gratuits.">
   <meta property="og:image" content="https://www.votredomaine.com/images/og-image.jpg">
-  
-  <!-- Twitter -->
+
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://www.votredomaine.com/">
   <meta property="twitter:title" content="CV Builder - Créateur de CV Professionnel sur Telegram">
   <meta property="twitter:description" content="Créez un CV professionnel en 5 minutes avec notre bot Telegram. Templates modernes et gratuits.">
   <meta property="twitter:image" content="https://www.votredomaine.com/images/twitter-image.jpg">
-  
-  <!-- Favicon -->
+
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  
-  <!-- Schema.org structured data -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,157 +42,38 @@
     }
   }
   </script>
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #6D3AFF;
-      --secondary: #FF9E3D;
-      --accent: #FFD166;
-      --dark: #292F36;
-      --light: #F7FFF7;
-      --mint: #4D9078;
-      --blue: #5EC2D0;
-    }
+  <link rel="stylesheet" href="css/main.css">
 
+  <style>
     @font-face {
       font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
       src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
     }
-
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      padding-top: 80px;
-    }
-
-    .hero-gradient {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-    }
-
-    .card-hover {
-      transition: all 0.3s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-
-    /* Styles pour le menu mobile */
-    .nav-container {
-      position: relative;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--primary);
-    }
-
-    .faq-item {
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .faq-question {
-      width: 100%;
-      text-align: left;
-      padding: 1rem 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-    .faq-item.active .faq-answer {
-      max-height: 300px;
-      padding-bottom: 1rem;
-    }
-
-    /* Styles pour la section templates */
-    .templates-preview {
-      background: linear-gradient(to right, var(--mint), var(--blue));
-    }
-
-    /* Responsive styles */
-    @media (max-width: 768px) {
-      .nav-links {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: white;
-        flex-direction: column;
-        gap: 0;
-        padding: 0;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-      }
-
-      .nav-links.active {
-        max-height: 300px;
-        padding: 1rem 0;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 1rem 2rem;
-        color: var(--dark);
-        transition: background 0.3s;
-      }
-
-      .nav-links a:hover {
-        background: rgba(109, 58, 255, 0.1);
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-      
-      .button-group {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .button-group a {
-        margin-bottom: 1rem;
-      }
-    }
   </style>
 </head>
-<body itemscope itemtype="https://schema.org/WebPage">
-  <!-- Navigation améliorée -->
-  <header class="fixed w-full top-0 z-50 bg-white shadow-md">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center nav-container">
-      <div class="logo text-2xl font-bold" style="color: var(--primary);">
-        <i class="fas fa-robot mr-2"></i><span itemprop="name">CV Builder</span>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav class="container mx-auto">
+      <div class="logo">
+        <i class="fas fa-robot mr-2"></i><span>CV Builder</span>
       </div>
-      
+
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
         <i class="fas fa-bars"></i>
       </button>
-      
+
       <ul class="nav-links">
-        <li><a href="#accueil" class="hover:text-[var(--primary)] font-medium">Accueil</a></li>
-        <li><a href="#templates" class="hover:text-[var(--primary)] font-medium">Templates</a></li>
-        <li><a href="#guides" class="hover:text-[var(--primary)] font-medium">Guides</a></li>
-        <li><a href="#faq" class="hover:text-[var(--primary)] font-medium">FAQ</a></li>
-        <li><a href="#contact" class="hover:text-[var(--primary)] font-medium">Contact</a></li>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#templates">Templates</a></li>
+        <li><a href="#guides">Guides</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -208,10 +81,10 @@
   <!-- Hero Section -->
   <section id="accueil" class="hero-gradient text-white pt-20 pb-20">
     <div class="container mx-auto px-6 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6" itemprop="headline">Votre Carrière, Notre Expertise</h1>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Votre Carrière, Notre Expertise</h1>
       <p class="text-xl max-w-2xl mx-auto mb-8">Créez un CV professionnel en 5 minutes avec notre bot Telegram</p>
-      <div class="button-group flex flex-col sm:flex-row justify-center gap-4">
-        <a href="Formulaire.html" class="inline-block bg-[var(--accent)] text-[var(--dark)] font-bold py-3 px-8 rounded-full hover:bg-[var(--primary)] hover:text-white transition-all">
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="Formulaire.html" class="cta-button">
           <i class="fas fa-briefcase"></i> Créer dès maintenant
         </a>
         <a href="templates.html" class="inline-block bg-white text-[var(--primary)] font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-all">
@@ -228,7 +101,7 @@
         <h2 class="text-3xl font-bold mb-4">Des Templates Professionnels</h2>
         <p class="text-xl max-w-2xl mx-auto">Choisissez parmi nos designs optimisés pour chaque secteur d'activité</p>
       </div>
-      
+
       <div class="grid md:grid-cols-3 gap-8 mb-12">
         <div class="bg-white bg-opacity-10 rounded-xl p-6 text-center backdrop-blur-sm">
           <div class="w-16 h-16 rounded-full bg-white bg-opacity-20 mx-auto mb-4 flex items-center justify-center text-2xl">
@@ -238,7 +111,7 @@
           <p class="mb-4">Designs optimisés pour les systèmes de recrutement automatisés</p>
           <a href="templates.html#simple" class="font-semibold hover:underline">Découvrir →</a>
         </div>
-        
+
         <div class="bg-white bg-opacity-10 rounded-xl p-6 text-center backdrop-blur-sm">
           <div class="w-16 h-16 rounded-full bg-white bg-opacity-20 mx-auto mb-4 flex items-center justify-center text-2xl">
             <i class="fas fa-paint-brush"></i>
@@ -247,7 +120,7 @@
           <p class="mb-4">Designs contemporains avec une touche d'élégance</p>
           <a href="templates.html#moderne" class="font-semibold hover:underline">Découvrir →</a>
         </div>
-        
+
         <div class="bg-white bg-opacity-10 rounded-xl p-6 text-center backdrop-blur-sm">
           <div class="w-16 h-16 rounded-full bg-white bg-opacity-20 mx-auto mb-4 flex items-center justify-center text-2xl">
             <i class="fas fa-magic"></i>
@@ -257,7 +130,7 @@
           <a href="templates.html#creatif" class="font-semibold hover:underline">Découvrir →</a>
         </div>
       </div>
-      
+
       <div class="text-center">
         <a href="templates.html" class="inline-block bg-white text-[var(--primary)] font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-all">
           Explorer tous les templates
@@ -271,9 +144,8 @@
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-4" style="color: var(--primary);">Guides d'utilisation</h2>
       <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Apprenez à maîtriser toutes les fonctionnalités de CV Builder</p>
-      
+
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Guide 1 -->
         <div class="bg-white rounded-xl p-8 shadow-md card-hover">
           <div class="w-16 h-16 rounded-lg bg-[var(--mint)] text-white flex items-center justify-center mb-4 text-2xl">
             <i class="fas fa-images"></i>
@@ -282,8 +154,7 @@
           <p class="text-gray-600 mb-4">Pas-à-pas détaillé en images pour chaque étape de création</p>
           <a href="#" class="font-semibold" style="color: var(--primary);">Voir le guide →</a>
         </div>
-        
-        <!-- Guide 2 -->
+
         <div class="bg-white rounded-xl p-8 shadow-md card-hover">
           <div class="w-16 h-16 rounded-lg bg-[var(--blue)] text-white flex items-center justify-center mb-4 text-2xl">
             <i class="fas fa-video"></i>
@@ -292,8 +163,7 @@
           <p class="text-gray-600 mb-4">Démonstrations en mouvement pour une prise en main rapide</p>
           <a href="#" class="font-semibold" style="color: var(--primary);">Voir les vidéos →</a>
         </div>
-        
-        <!-- Guide 3 -->
+
         <div class="bg-white rounded-xl p-8 shadow-md card-hover">
           <div class="w-16 h-16 rounded-lg bg-[var(--secondary)] text-white flex items-center justify-center mb-4 text-2xl">
             <i class="fas fa-file-pdf"></i>
@@ -311,7 +181,7 @@
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-4">Fonctionnalités Clés</h2>
       <p class="text-center text-gray-300 max-w-2xl mx-auto mb-12">Découvrez pourquoi notre bot est l'outil ultime pour votre CV</p>
-      
+
       <div class="grid md:grid-cols-3 gap-8">
         <div class="text-center p-6">
           <div class="w-20 h-20 rounded-full bg-[var(--primary)] mx-auto mb-4 flex items-center justify-center text-2xl">
@@ -320,7 +190,7 @@
           <h3 class="text-xl font-bold mb-2">Rapide</h3>
           <p class="text-gray-300">CV généré en 5 minutes chrono</p>
         </div>
-        
+
         <div class="text-center p-6">
           <div class="w-20 h-20 rounded-full bg-[var(--mint)] mx-auto mb-4 flex items-center justify-center text-2xl">
             <i class="fas fa-file-pdf"></i>
@@ -328,7 +198,7 @@
           <h3 class="text-xl font-bold mb-2">PDF Pro</h3>
           <p class="text-gray-300">Export haute qualité prêt à imprimer</p>
         </div>
-        
+
         <div class="text-center p-6">
           <div class="w-20 h-20 rounded-full bg-[var(--accent)] mx-auto mb-4 flex items-center justify-center text-2xl" style="color: var(--dark);">
             <i class="fas fa-mobile-alt"></i>
@@ -344,7 +214,7 @@
   <section id="faq" class="py-20 bg-gray-50">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-12" style="color: var(--primary);">❓ Questions Fréquentes</h2>
-      
+
       <div class="max-w-3xl mx-auto">
         <div class="faq-item mb-4">
           <button class="faq-question w-full flex justify-between items-center text-left font-bold py-4 px-4 bg-white rounded-lg shadow-sm">
@@ -355,7 +225,7 @@
             <p class="py-3">Ajoutez simplement @Temoin005Bot sur Telegram, lancez la conversation et suivez les instructions étape par étape. Le bot vous guidera à travers tout le processus.</p>
           </div>
         </div>
-        
+
         <div class="faq-item mb-4">
           <button class="faq-question w-full flex justify-between items-center text-left font-bold py-4 px-4 bg-white rounded-lg shadow-sm">
             <span>Puis-je modifier mon CV après génération ?</span>
@@ -365,7 +235,7 @@
             <p class="py-3">Oui ! Vous recevrez un fichier modifiable que vous pourrez ajuster à tout moment. Vous pouvez également relancer le bot pour générer une nouvelle version.</p>
           </div>
         </div>
-        
+
         <div class="faq-item mb-4">
           <button class="faq-question w-full flex justify-between items-center text-left font-bold py-4 px-4 bg-white rounded-lg shadow-sm">
             <span>Le service est-il vraiment gratuit ?</span>
@@ -385,12 +255,12 @@
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-6" style="color: var(--primary);">📬 Contactez-nous</h2>
         <p class="text-gray-600 mb-8">Une question non résolue ? Besoin d'aide ? Notre équipe est là pour vous aider.</p>
-        
+
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="https://t.me/Temoin005Bot" class="bg-[var(--primary)] text-white py-3 px-8 rounded-full font-bold hover:bg-[var(--dark)] transition-all inline-block">
             <i class="fab fa-telegram mr-2"></i> Chat avec le bot
           </a>
-          <a href="mailto: emmanuelmayala40@gmail.com" class="border border-[var(--primary)] text-[var(--primary)] py-3 px-8 rounded-full font-bold hover:bg-[var(--primary)] hover:text-white transition-all inline-block">
+          <a href="mailto:emmanuelmayala40@gmail.com" class="border border-[var(--primary)] text-[var(--primary)] py-3 px-8 rounded-full font-bold hover:bg-[var(--primary)] hover:text-white transition-all inline-block">
             <i class="fas fa-envelope mr-2"></i> Email
           </a>
         </div>
@@ -399,7 +269,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-10" style="background: var(--dark); color: white;">
+  <footer>
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-4 md:mb-0">
@@ -408,71 +278,24 @@
           </div>
           <p class="text-gray-400">L'outil ultime pour créer un CV parfait</p>
         </div>
-        
+
         <div class="flex gap-6">
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-telegram"></i></a>
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
           <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github"></i></a>
         </div>
       </div>
-      
+
       <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
         <p>© 2023 CV Builder. Tous droits réservés.</p>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Gestion du menu mobile
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    menuToggle.addEventListener('click', () => {
-      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !isExpanded);
-      navLinks.classList.toggle('active');
-      
-      // Animation de l'icône
-      if (navLinks.classList.contains('active')) {
-        menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-      } else {
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-      }
-    });
-
-    // Fermer le menu quand un lien est cliqué (sur mobile)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          navLinks.classList.remove('active');
-          menuToggle.setAttribute('aria-expanded', 'false');
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-      });
-    });
-
-    // FAQ Accordéon
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const item = button.parentNode;
-        item.classList.toggle('active');
-        
-        const icon = button.querySelector('i');
-        icon.style.transform = item.classList.contains('active') 
-          ? 'rotate(180deg)' 
-          : 'rotate(0)';
-      });
-    });
-
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-  </script>
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
 </body>
-  </html>
+</html>
