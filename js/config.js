@@ -18,22 +18,23 @@ window.COLORS = {
 // Configuration des templates
 window.TEMPLATES_CONFIG = {
     ats: [
-        { image: "Assets/Cv/Cv_restaurant.jpg", titre: "Classique", desc: "Structure claire et professionnelle" },
-        { image: "Assets/Cv/ats-minimaliste.jpg", titre: "Minimaliste", desc: "Simplicité et efficacité" },
-        { image: "Assets/Cv/ats-professionnel.jpg", titre: "Professionnel", desc: "Design épuré mettant en valeur votre expérience" },
-        { image: "Assets/Cv/ats-fonctionnel.jpg", titre: "Fonctionnel", desc: "Mise en avant des compétences" }
+        { image: "Assets/Cv/Cv_restaurant.jpg", titre: "ats", desc: "Structure claire et professionnelle" },
+        { image: "Assets/Cv/ats-minimaliste.jpg", titre: "ats_classique", desc: "" },
+        { image: "Assets/Cv/ats-professionnel.jpg", titre: "ats_moderne", desc: "" },
+        { image: "Assets/Cv/ats-fonctionnel.jpg", titre: "ats_minimaliste", desc: "" }
     ],
     moderne: [
-        { image: "Assets/Cv/Cv_restaurant.jpg", titre: "🌿 CV Dynamique & Coloré", desc: "Un template pétillant qui met en avant ton profil avec style et bonne humeur ! 🎨✨" },
-        { image: "Assets/Cv/moderne-elegant.jpg", titre: "Élégant", desc: "Pour postes à responsabilité" },
-        { image: "Assets/Cv/moderne-innovant.jpg", titre: "Innovant", desc: "Mise en page originale" },
-        { image: "Assets/Cv/moderne-dynamique.jpg", titre: "Dynamique", desc: "Énergique et moderne" }
+        { image: "Assets/Cv/Cv_restaurant.jpg", titre: "mod", desc: "" },
+        { image: "Assets/Cv/moderne-elegant.jpg", titre: "mod_blue", desc: "" },
+        { image: "Assets/Cv/moderne-innovant.jpg", titre: "cv_etudiant", desc: "" },
+        { image: "Assets/Cv/moderne-innovant.jpg", titre: "cv_etudiant_1", desc: "" },
+        { image: "Assets/Cv/moderne-dynamique.jpg", titre: "cv_etudiant_ats", desc: "" }
     ],
     creatif: [
-        { image: "Assets/Cv/creatif-artistique.jpg", titre: "Artistique", desc: "Pour les métiers du design" },
-        { image: "Assets/Cv/creatif-original.jpg", titre: "Original", desc: "Hors des sentiers battus" },
-        { image: "Assets/Cv/creatif-colore.jpg", titre: "Coloré", desc: "Utilisation audacieuse de la couleur" },
-        { image: "Assets/Cv/creatif-portfolio.jpg", titre: "Portfolio", desc: "Espace pour vos réalisations" }
+        { image: "Assets/Cv/creatif-artistique.jpg", titre: "crea", desc: "Pour les métiers du design" },
+        { image: "Assets/Cv/creatif-original.jpg", titre: "crea2", desc: "Hors des sentiers battus" },
+        { image: "Assets/Cv/creatif-colore.jpg", titre: "crea3", desc: "Utilisation audacieuse de la couleur" },
+        { image: "Assets/Cv/creatif-portfolio.jpg", titre: "Crea4", desc: "Espace pour vos réalisations" }
     ]
 };
 

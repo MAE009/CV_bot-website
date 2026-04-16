@@ -1,9 +1,14 @@
 // =======================
-// GESTION DES TEMPLATES
+// GESTION DES TEMPLATES AVEC CARROUSEL INFINI
 // =======================
 
 // Données des templates
 let templatesData = null;
+let carousels = {
+    ats: null,
+    moderne: null,
+    creatif: null
+};
 
 // Initialiser la page des templates
 window.initTemplatesPage = function() {
@@ -11,11 +16,15 @@ window.initTemplatesPage = function() {
         ats: [], moderne: [], creatif: []
     };
 
+    // Générer le HTML des carrousels
     renderCarousel("ats", "carousel-ats");
     renderCarousel("moderne", "carousel-moderne");
     renderCarousel("creatif", "carousel-creatif");
 
-    initCarouselNavigation();
+    // Initialiser les carrousels infinis APRÈS que le DOM est prêt
+    setTimeout(() => {
+        initInfiniteCarousels();
+    }, 100);
 };
 
 // Fonction pour générer les carrousels
@@ -26,63 +35,75 @@ function renderCarousel(category, containerId) {
     container.innerHTML = '';
     const templates = templatesData[category] || [];
 
-    templates.forEach(cv => {
+    templates.forEach((cv, index) => {
         container.innerHTML += `
-            <div class="carousel-item">
+            <div class="carousel-item" data-template-index="${index}" data-category="${category}">
                 <div class="carousel-img">
-                    <img src="${cv.image}" alt="Template CV ${cv.titre}" loading="lazy" onerror="this.src='https://placehold.co/300x200?text=CV+Template'">
+                    <img src="${cv.image}" alt="Template CV ${escapeHtml(cv.titre)}" loading="lazy" onerror="this.src='https://placehold.co/300x200?text=CV+Template'">
+                    ${index === 0 ? '<span class="carousel-badge">Populaire</span>' : ''}
                 </div>
                 <div class="carousel-content">
                     <h3 class="text-xl font-bold mb-2">${escapeHtml(cv.titre)}</h3>
                     <p class="text-gray-600 mb-4">${escapeHtml(cv.desc)}</p>
-                    <a href="Formulaire.html" class="font-semibold" style="color: var(--primary);">Utiliser ce template →</a>
+                    <div class="flex gap-2">
+                        <a href="Formulaire.html?template=${encodeURIComponent(cv.titre)}" class="btn-use-template" style="color: var(--primary); font-weight: 600;">
+                            Utiliser ce template →
+                        </a>
+                    </div>
                 </div>
             </div>
         `;
     });
 }
 
-// Initialiser la navigation des carrousels
-function initCarouselNavigation() {
-    document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            const section = dot.closest('section');
-            const carouselContainer = section.querySelector('.carousel-container');
-            const carousel = section.querySelector('.carousel');
-
-            if (carousel && carouselContainer) {
-                const itemWidth = carousel.querySelector('.carousel-item')?.offsetWidth + 24 || 324;
-                carouselContainer.scrollTo({
-                    left: index * itemWidth,
-                    behavior: 'smooth'
-                });
-
-                // Mettre à jour les dots actifs
-                section.querySelectorAll('.carousel-dot').forEach(d => d.classList.remove('active'));
-                dot.classList.add('active');
-            }
+// Initialiser tous les carrousels infinis
+function initInfiniteCarousels() {
+    // Carrousel ATS
+    const atsContainer = document.getElementById('carousel-ats');
+    if (atsContainer && atsContainer.children.length > 0) {
+        if (carousels.ats) carousels.ats.destroy();
+        carousels.ats = new InfiniteCarousel('carousel-ats', {
+            autoPlay: true,
+            autoPlaySpeed: 5000,
+            gap: 24,
+            visibleSlides: getVisibleSlidesCount()
         });
-    });
+    }
 
-    // Synchroniser les dots avec le défilement
-    document.querySelectorAll('.carousel-container').forEach(container => {
-        container.addEventListener('scroll', () => {
-            const section = container.closest('section');
-            const scrollPosition = container.scrollLeft;
-            const carousel = section.querySelector('.carousel');
-            const firstItem = carousel?.querySelector('.carousel-item');
-
-            if (firstItem) {
-                const itemWidth = firstItem.offsetWidth + 24;
-                const activeIndex = Math.round(scrollPosition / itemWidth);
-                const dots = section.querySelectorAll('.carousel-dot');
-
-                dots.forEach((dot, idx) => {
-                    dot.classList.toggle('active', idx === activeIndex);
-                });
-            }
+    // Carrousel Moderne
+    const moderneContainer = document.getElementById('carousel-moderne');
+    if (moderneContainer && moderneContainer.children.length > 0) {
+        if (carousels.moderne) carousels.moderne.destroy();
+        carousels.moderne = new InfiniteCarousel('carousel-moderne', {
+            autoPlay: true,
+            autoPlaySpeed: 5000,
+            gap: 24,
+            visibleSlides: getVisibleSlidesCount()
         });
-    });
+    }
+
+    // Carrousel Créatif
+    const creatifContainer = document.getElementById('carousel-creatif');
+    if (creatifContainer && creatifContainer.children.length > 0) {
+        if (carousels.creatif) carousels.creatif.destroy();
+        carousels.creatif = new InfiniteCarousel('carousel-creatif', {
+            autoPlay: true,
+            autoPlaySpeed: 5000,
+            gap: 24,
+            visibleSlides: getVisibleSlidesCount()
+        });
+    }
+
+    console.log('✅ Tous les carrousels infinis sont initialisés');
+}
+
+// Fonction helper pour le nombre de slides visibles
+function getVisibleSlidesCount() {
+    if (window.innerWidth < 640) return 1;
+    if (window.innerWidth < 768) return 1;
+    if (window.innerWidth < 1024) return 2;
+    if (window.innerWidth < 1280) return 3;
+    return 4;
 }
 
 // Fonction utilitaire pour échapper le HTML
@@ -92,3 +113,23 @@ function escapeHtml(text) {
     div.textContent = text;
     return div.innerHTML;
 }
+
+// Redémarrer les carrousels au redimensionnement
+window.addEventListener('resize', () => {
+    clearTimeout(window.resizeTimer);
+    window.resizeTimer = setTimeout(() => {
+        const newVisibleSlides = getVisibleSlidesCount();
+        if (carousels.ats) {
+            carousels.ats.options.visibleSlides = newVisibleSlides;
+            carousels.ats.rebuild();
+        }
+        if (carousels.moderne) {
+            carousels.moderne.options.visibleSlides = newVisibleSlides;
+            carousels.moderne.rebuild();
+        }
+        if (carousels.creatif) {
+            carousels.creatif.options.visibleSlides = newVisibleSlides;
+            carousels.creatif.rebuild();
+        }
+    }, 250);
+});

@@ -7,6 +7,14 @@ let formulaireCVData = null;
 // Initialiser le formulaire
 window.initFormulaire = function() {
     formulaireCVData = window.loadCVData() || JSON.parse(JSON.stringify(window.DEFAULT_CV_DATA));
+
+    // 🔥 récupérer le template
+    const template = getTemplateFromURL();
+    if (template) {
+        if (!formulaireCVData.infos) formulaireCVData.infos = {};
+        formulaireCVData.infos.type_template = template;
+    }
+
     loadFormData();
     updateProgress(formulaireCVData);
 
@@ -20,6 +28,11 @@ window.initFormulaire = function() {
 
 // Charger les données dans le formulaire
 function loadFormData() {
+    const typeTemplateInput = document.getElementById('type_template');
+    if (typeTemplateInput) {
+        typeTemplateInput.value = formulaireCVData.infos.type_template || '';
+    }
+
     const infos = formulaireCVData.infos || {};
 
     const fields = ['nom', 'prenom', 'poste', 'ville', 'tel', 'email', 'autre', 'resume'];
@@ -38,6 +51,7 @@ function loadFormData() {
 // Sauvegarder les données du formulaire
 window.saveFormData = function() {
     formulaireCVData.infos = {
+        type_template: document.getElementById('type_template')?.value || 'mod',
         nom: document.getElementById('nom')?.value || '',
         prenom: document.getElementById('prenom')?.value || '',
         poste: document.getElementById('poste')?.value || '',
@@ -53,6 +67,56 @@ window.saveFormData = function() {
     window.showSaveIndicator();
     window.updateProgress(formulaireCVData);
 };
+
+// Gestion template
+function getTemplateFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('template');
+}
+
+// Gestion de photo
+window.handlePhotoUpload = function(input) {
+    const file = input.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const base64 = e.target.result;
+
+        // stocker dans ton objet global
+        if (!formulaireCVData.infos) formulaireCVData.infos = {};
+        formulaireCVData.infos.photo_base64 = base64;
+
+        // preview
+        const preview = document.getElementById('photo-preview');
+        const container = document.getElementById('photo-preview-container');
+
+        if (preview) preview.src = base64;
+        if (container) container.classList.remove('hidden');
+
+        saveFormData();
+    };
+
+    reader.readAsDataURL(file);
+};
+
+window.removePhoto = function() {
+    if (formulaireCVData.infos) {
+        formulaireCVData.infos.photo_base64 = null;
+    }
+
+    const input = document.getElementById('photo');
+    const preview = document.getElementById('photo-preview');
+    const container = document.getElementById('photo-preview-container');
+
+    if (input) input.value = '';
+    if (preview) preview.src = '';
+    if (container) container.classList.add('hidden');
+
+    saveFormData();
+};
+
 
 // Gestion des expériences
 function loadExperiences() {
