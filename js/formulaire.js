@@ -40,7 +40,7 @@ function loadFormData() {
 
     const categoryInput = document.getElementById('category_template');
     if (categoryInput) {
-        categoryInput.value = infos.category_template || '';
+        categoryInput.value = formulaireCVData.infos.category_template || '';
     }
 
     const infos = formulaireCVData.infos || {};
@@ -62,7 +62,7 @@ function loadFormData() {
 window.saveFormData = function() {
     formulaireCVData.infos = {
         type_template: document.getElementById('type_template')?.value || 'mod',
-        category_template: formulaireCVData.infos?.category_template || '',
+        category_template: document.getElementById('category_template')?.value || '',
         nom: document.getElementById('nom')?.value || '',
         prenom: document.getElementById('prenom')?.value || '',
         poste: document.getElementById('poste')?.value || '',
