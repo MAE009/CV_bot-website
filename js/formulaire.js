@@ -8,11 +8,16 @@ let formulaireCVData = null;
 window.initFormulaire = function() {
     formulaireCVData = window.loadCVData() || JSON.parse(JSON.stringify(window.DEFAULT_CV_DATA));
 
-    // 🔥 récupérer le template
-    const template = getTemplateFromURL();
+    const { template, category } = getURLParams();
+
+    if (!formulaireCVData.infos) formulaireCVData.infos = {};
+
     if (template) {
-        if (!formulaireCVData.infos) formulaireCVData.infos = {};
         formulaireCVData.infos.type_template = template;
+    }
+
+    if (category) {
+        formulaireCVData.infos.category_template = category;
     }
 
     loadFormData();
@@ -31,6 +36,11 @@ function loadFormData() {
     const typeTemplateInput = document.getElementById('type_template');
     if (typeTemplateInput) {
         typeTemplateInput.value = formulaireCVData.infos.type_template || '';
+    }
+
+    const categoryInput = document.getElementById('category_template');
+    if (categoryInput) {
+        categoryInput.value = infos.category_template || '';
     }
 
     const infos = formulaireCVData.infos || {};
@@ -52,6 +62,7 @@ function loadFormData() {
 window.saveFormData = function() {
     formulaireCVData.infos = {
         type_template: document.getElementById('type_template')?.value || 'mod',
+        category_template: formulaireCVData.infos?.category_template || '',
         nom: document.getElementById('nom')?.value || '',
         prenom: document.getElementById('prenom')?.value || '',
         poste: document.getElementById('poste')?.value || '',
@@ -69,11 +80,13 @@ window.saveFormData = function() {
 };
 
 // Gestion template
-function getTemplateFromURL() {
+function getURLParams() {
     const params = new URLSearchParams(window.location.search);
-    return params.get('template');
+    return {
+        template: params.get('template'),
+        category: params.get('category')
+    };
 }
-
 // Gestion de photo
 window.handlePhotoUpload = function(input) {
     const file = input.files[0];
