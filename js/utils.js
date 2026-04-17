@@ -89,7 +89,7 @@ window.updateProgress = function(cvData) {
     if (cvData.experiences && cvData.experiences.length > 0) progress += 15;
     if (cvData.formations && cvData.formations.length > 0) progress += 15;
     if (cvData.competences && cvData.competences.length > 0) progress += 10;
-    if (infos.photo_base64) progress += 5;
+    if (infos.photo_path) progress += 5;
 
     progressFill.style.width = Math.min(progress, 100) + '%';
 };
@@ -106,7 +106,7 @@ window.handlePhotoUpload = function(input, cvData, saveCallback) {
         const reader = new FileReader();
         reader.onload = function(e) {
             if (!cvData.infos) cvData.infos = {};
-            cvData.infos.photo_base64 = e.target.result;
+            cvData.infos.photo_path = e.target.result;
 
             const preview = document.getElementById('photo-preview');
             const container = document.getElementById('photo-preview-container');
@@ -123,7 +123,7 @@ window.handlePhotoUpload = function(input, cvData, saveCallback) {
 
 window.removePhoto = function(cvData, saveCallback) {
     if (!cvData.infos) cvData.infos = {};
-    cvData.infos.photo_base64 = null;
+    cvData.infos.photo_path = null;
 
     const photoInput = document.getElementById('photo');
     const container = document.getElementById('photo-preview-container');
@@ -135,11 +135,11 @@ window.removePhoto = function(cvData, saveCallback) {
 };
 
 window.loadPhoto = function(cvData) {
-    if (cvData.infos && cvData.infos.photo_base64) {
+    if (cvData.infos && cvData.infos.photo_path) {
         const preview = document.getElementById('photo-preview');
         const container = document.getElementById('photo-preview-container');
         if (preview && container) {
-            preview.src = cvData.infos.photo_base64;
+            preview.src = cvData.infos.photo_path;
             container.classList.remove('hidden');
         }
     }

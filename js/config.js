@@ -49,7 +49,7 @@ window.DEFAULT_CV_DATA = {
         email: "",
         autre: "",
         resume: "",
-        photo_base64: null
+        photo_path: null
     },
     experiences: [],
     formations: [],

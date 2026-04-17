@@ -60,7 +60,7 @@ window.saveFormData = function() {
         email: document.getElementById('email')?.value || '',
         autre: document.getElementById('autre')?.value || '',
         resume: document.getElementById('resume')?.value || '',
-        photo_base64: formulaireCVData.infos?.photo_base64 || null
+        photo_path: formulaireCVData.infos?.photo_path || null
     };
 
     window.saveCVData(formulaireCVData);
@@ -86,7 +86,7 @@ window.handlePhotoUpload = function(input) {
 
         // stocker dans ton objet global
         if (!formulaireCVData.infos) formulaireCVData.infos = {};
-        formulaireCVData.infos.photo_base64 = base64;
+        formulaireCVData.infos.photo_path = base64;
 
         // preview
         const preview = document.getElementById('photo-preview');
@@ -103,7 +103,7 @@ window.handlePhotoUpload = function(input) {
 
 window.removePhoto = function() {
     if (formulaireCVData.infos) {
-        formulaireCVData.infos.photo_base64 = null;
+        formulaireCVData.infos.photo_path = null;
     }
 
     const input = document.getElementById('photo');
