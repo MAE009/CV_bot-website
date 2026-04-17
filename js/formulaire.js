@@ -23,6 +23,13 @@ window.initFormulaire = function() {
     loadFormData();
     updateProgress(formulaireCVData);
 
+    // Mettre à jour la disponibilité du formulaire avancé
+    if (typeof window.checkAdvancedAvailability === 'function') {
+        setTimeout(function() {
+            window.checkAdvancedAvailability();
+        }, 100);
+    }
+
     const form = document.getElementById('cvForm');
     if (form) {
         form.addEventListener('input', function() {

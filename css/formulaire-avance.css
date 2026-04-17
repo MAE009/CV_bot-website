@@ -103,3 +103,25 @@
 .form-container.hidden {
     display: none !important;
 }
+
+/* Message d'information */
+#advanced-info-message {
+    transition: all 0.3s ease;
+}
+
+#advanced-info-message.show {
+    display: block !important;
+}
+
+/* Style pour le bouton avancé désactivé */
+#switch-to-avance[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #ccc;
+    border-color: #999;
+}
+
+#switch-to-avance[disabled]:hover {
+    transform: none;
+    box-shadow: none;
+}
