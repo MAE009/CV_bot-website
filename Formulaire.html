@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/formulaire.css">
+  <link rel="stylesheet" href="css/formulaire-avance.css">
 </head>
 <body class="min-h-screen bg-gray-50">
   <!-- Navigation -->
@@ -16,11 +17,9 @@
       <div class="logo">
         <i class="fas fa-robot mr-2"></i>CV Builder
       </div>
-
       <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
         <i class="fas fa-bars"></i>
       </button>
-
       <ul class="nav-links">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="templates.html">Templates</a></li>
@@ -47,167 +46,362 @@
       <i class="fas fa-check mr-2"></i>Données sauvegardées
     </div>
 
-    <!-- Formulaire -->
-    <form id="cvForm">
-      <!-- Section type Template -->
-      <section class="form-section">
-        <div class="section-header">
-          <h2 class="text-2xl font-bold">
-            <i class="fas fa-briefcase mr-2"></i>Type Template
-          </h2>
-        </div>
-        <div class="p-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="form-group">
-              <label class="form-label">Template name </label>
-              <input type="text" id="type_template" name="type_template" class="form-input" readonly>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Template category </label>
-              <input type="text" id="category_template" name="category_template" class="form-input" readonly>
-            </div>
-        </div>
-      </section>
+    <!-- Sélecteur de type de formulaire -->
+    <div class="form-type-switcher" id="form-type-switcher">
+      <button class="form-switch-btn" id="switch-to-standard" data-form="standard">
+        <i class="fas fa-file-alt mr-2"></i>Formulaire Standard
+      </button>
+      <button class="form-switch-btn" id="switch-to-avance" data-form="avance">
+        <i class="fas fa-star-of-life mr-2"></i>Formulaire Avancé
+      </button>
+    </div>
 
-      <!-- Section Informations Personnelles -->
-      <section class="form-section">
-        <div class="section-header">
-          <h2 class="text-2xl font-bold">
-            <i class="fas fa-user mr-2"></i>Informations Personnelles
-          </h2>
-        </div>
-        <div class="p-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div class="form-group">
-              <label class="form-label">Nom *</label>
-              <input type="text" id="nom" name="nom" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Prénom *</label>
-              <input type="text" id="prenom" name="prenom" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Poste recherché *</label>
-              <input type="text" id="poste" name="poste" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Ville *</label>
-              <input type="text" id="ville" name="ville" class="form-input" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Téléphone</label>
-              <input type="tel" id="tel" name="tel" class="form-input">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email *</label>
-              <input type="email" id="email" name="email" class="form-input" required>
+    <!-- FORMULAIRE STANDARD -->
+    <div id="form-standard-container" class="form-container">
+      <form id="cvForm">
+        <!-- Section Type Template -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-briefcase mr-2"></i>Type Template
+            </h2>
+          </div>
+          <div class="p-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="form-group">
+                <label class="form-label">Template name</label>
+                <input type="text" id="type_template" name="type_template" class="form-input" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Template category</label>
+                <input type="text" id="category_template" name="category_template" class="form-input" readonly>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label class="form-label">Autres informations (LinkedIn, site web...)</label>
-            <input type="text" id="autre" name="autre" class="form-input">
+        </section>
+
+        <!-- Section Informations Personnelles -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-user mr-2"></i>Informations Personnelles
+            </h2>
           </div>
-          <div class="form-group">
-            <label class="form-label">Résumé professionnel *</label>
-            <textarea id="resume" name="resume" class="form-input" rows="4" required></textarea>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Photo (optionnel)</label>
-            <div class="photo-upload-area" onclick="document.getElementById('photo').click()">
-              <i class="fas fa-camera text-3xl mb-2"></i>
-              <p>Cliquez pour ajouter une photo</p>
-              <p class="text-sm text-gray-500">Recommandé : format carré, max 2MB</p>
-              <input type="file" id="photo" class="hidden" accept="image/*" onchange="handlePhotoUpload(this)">
+          <div class="p-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="form-group">
+                <label class="form-label">Nom *</label>
+                <input type="text" id="nom" name="nom" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Poste recherché *</label>
+                <input type="text" id="poste" name="poste" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Ville *</label>
+                <input type="text" id="ville" name="ville" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Téléphone</label>
+                <input type="tel" id="tel" name="tel" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email *</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+              </div>
             </div>
-            <div id="photo-preview-container" class="hidden">
-              <img id="photo-preview" class="photo-preview" alt="Aperçu de la photo">
-              <button type="button" onclick="removePhoto()" class="btn-primary mt-2">
-                <i class="fas fa-trash mr-2"></i>Supprimer la photo
-              </button>
+            <div class="form-group">
+              <label class="form-label">Autres informations (LinkedIn, site web...)</label>
+              <input type="text" id="autre" name="autre" class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Résumé professionnel *</label>
+              <textarea id="resume" name="resume" class="form-input" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Photo (optionnel)</label>
+              <div class="photo-upload-area" onclick="document.getElementById('photo').click()">
+                <i class="fas fa-camera text-3xl mb-2"></i>
+                <p>Cliquez pour ajouter une photo</p>
+                <p class="text-sm text-gray-500">Recommandé : format carré, max 2MB</p>
+                <input type="file" id="photo" class="hidden" accept="image/*" onchange="handlePhotoUpload(this)">
+              </div>
+              <div id="photo-preview-container" class="hidden">
+                <img id="photo-preview" class="photo-preview" alt="Aperçu de la photo">
+                <button type="button" onclick="removePhoto()" class="btn-primary mt-2">
+                  <i class="fas fa-trash mr-2"></i>Supprimer la photo
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Section Expériences Professionnelles -->
-      <section class="form-section">
-        <div class="section-header">
-          <h2 class="text-2xl font-bold">
-            <i class="fas fa-briefcase mr-2"></i>Expériences Professionnelles
-          </h2>
-        </div>
-        <div class="p-6">
-          <div id="experiences-container"></div>
-          <button type="button" onclick="addExperience()" class="btn-secondary">
-            <i class="fas fa-plus mr-2"></i>Ajouter une expérience
+        <!-- Section Expériences -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-briefcase mr-2"></i>Expériences Professionnelles
+            </h2>
+          </div>
+          <div class="p-6">
+            <div id="experiences-container"></div>
+            <button type="button" onclick="addExperience()" class="btn-secondary">
+              <i class="fas fa-plus mr-2"></i>Ajouter une expérience
+            </button>
+          </div>
+        </section>
+
+        <!-- Section Formations -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-graduation-cap mr-2"></i>Formations
+            </h2>
+          </div>
+          <div class="p-6">
+            <div id="formations-container"></div>
+            <button type="button" onclick="addFormation()" class="btn-secondary">
+              <i class="fas fa-plus mr-2"></i>Ajouter une formation
+            </button>
+          </div>
+        </section>
+
+        <!-- Section Compétences -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-cogs mr-2"></i>Compétences
+            </h2>
+          </div>
+          <div class="p-6">
+            <div id="competences-container"></div>
+            <button type="button" onclick="addCompetence()" class="btn-secondary">
+              <i class="fas fa-plus mr-2"></i>Ajouter une compétence
+            </button>
+          </div>
+        </section>
+
+        <!-- Section Langues -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-language mr-2"></i>Langues
+            </h2>
+          </div>
+          <div class="p-6">
+            <div id="langues-container"></div>
+            <button type="button" onclick="addLangue()" class="btn-secondary">
+              <i class="fas fa-plus mr-2"></i>Ajouter une langue
+            </button>
+          </div>
+        </section>
+
+        <!-- Boutons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <button type="button" onclick="saveForLater()" class="btn-secondary">
+            <i class="fas fa-save mr-2"></i>Sauvegarder pour plus tard
+          </button>
+          <button type="button" onclick="generateCV()" class="btn-primary">
+            <i class="fas fa-file-pdf mr-2"></i>Générer mon CV maintenant
           </button>
         </div>
-      </section>
+      </form>
+    </div>
 
-      <!-- Section Formations -->
-      <section class="form-section">
-        <div class="section-header">
-          <h2 class="text-2xl font-bold">
-            <i class="fas fa-graduation-cap mr-2"></i>Formations
-          </h2>
-        </div>
-        <div class="p-6">
-          <div id="formations-container"></div>
-          <button type="button" onclick="addFormation()" class="btn-secondary">
-            <i class="fas fa-plus mr-2"></i>Ajouter une formation
+    <!-- FORMULAIRE AVANCÉ -->
+    <div id="form-avance-container" class="form-container hidden">
+      <form id="cvFormAvance">
+        <!-- Section Type Template -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-briefcase mr-2"></i>Type Template
+            </h2>
+          </div>
+          <div class="p-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="form-group">
+                <label class="form-label">Template name</label>
+                <input type="text" id="type_template_avance" name="type_template_avance" class="form-input" readonly>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Template category</label>
+                <input type="text" id="category_template_avance" name="category_template_avance" class="form-input" readonly>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section Informations Personnelles -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-user mr-2"></i>Informations Personnelles
+            </h2>
+          </div>
+          <div class="p-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="form-group">
+                <label class="form-label">Nom *</label>
+                <input type="text" id="nom_avance" name="nom_avance" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Prénom *</label>
+                <input type="text" id="prenom_avance" name="prenom_avance" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Poste recherché *</label>
+                <input type="text" id="poste_avance" name="poste_avance" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Ville *</label>
+                <input type="text" id="ville_avance" name="ville_avance" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Téléphone</label>
+                <input type="tel" id="tel_avance" name="tel_avance" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email *</label>
+                <input type="email" id="email_avance" name="email_avance" class="form-input" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Autres informations (LinkedIn, site web...)</label>
+              <input type="text" id="autre_avance" name="autre_avance" class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Résumé professionnel *</label>
+              <textarea id="resume_avance" name="resume_avance" class="form-input" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Photo (optionnel)</label>
+              <div class="photo-upload-area" onclick="document.getElementById('photo_avance').click()">
+                <i class="fas fa-camera text-3xl mb-2"></i>
+                <p>Cliquez pour ajouter une photo</p>
+                <p class="text-sm text-gray-500">Recommandé : format carré, max 2MB</p>
+                <input type="file" id="photo_avance" class="hidden" accept="image/*" onchange="handlePhotoUploadAvance(this)">
+              </div>
+              <div id="photo-preview-container-avance" class="hidden">
+                <img id="photo-preview-avance" class="photo-preview" alt="Aperçu de la photo">
+                <button type="button" onclick="removePhotoAvance()" class="btn-primary mt-2">
+                  <i class="fas fa-trash mr-2"></i>Supprimer la photo
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section Expériences Avancées -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-briefcase mr-2"></i>Expériences Professionnelles
+            </h2>
+          </div>
+          <div class="p-6">
+            <div id="experiences-container-avance"></div>
+            <button type="button" onclick="addExperienceAvance()" class="btn-secondary">
+              <i class="fas fa-plus mr-2"></i>Ajouter une expérience
+            </button>
+          </div>
+        </section>
+
+        <!-- Section Formations Avancées -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-graduation-cap mr-2"></i>Formations
+            </h2>
+          </div>
+          <div class="p-6">
+            <div id="formations-container-avance"></div>
+            <button type="button" onclick="addFormationAvance()" class="btn-secondary">
+              <i class="fas fa-plus mr-2"></i>Ajouter une formation
+            </button>
+          </div>
+        </section>
+
+        <!-- Section Compétences Avancées -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-cogs mr-2"></i>Compétences
+            </h2>
+          </div>
+          <div class="p-6">
+            <div id="competences-container-avance"></div>
+            <button type="button" onclick="addCompetenceAvance()" class="btn-secondary">
+              <i class="fas fa-plus mr-2"></i>Ajouter une compétence
+            </button>
+          </div>
+        </section>
+
+        <!-- Section Langues Avancées -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2 class="text-2xl font-bold">
+              <i class="fas fa-language mr-2"></i>Langues
+            </h2>
+          </div>
+          <div class="p-6">
+            <div id="langues-container-avance"></div>
+            <button type="button" onclick="addLangueAvance()" class="btn-secondary">
+              <i class="fas fa-plus mr-2"></i>Ajouter une langue
+            </button>
+          </div>
+        </section>
+
+        <!-- Boutons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <button type="button" onclick="saveForLaterAvance()" class="btn-secondary">
+            <i class="fas fa-save mr-2"></i>Sauvegarder pour plus tard
+          </button>
+          <button type="button" onclick="generateCVAvance()" class="btn-primary">
+            <i class="fas fa-file-pdf mr-2"></i>Générer mon CV maintenant
           </button>
         </div>
-      </section>
-
-      <!-- Section Compétences -->
-      <section class="form-section">
-        <div class="section-header">
-          <h2 class="text-2xl font-bold">
-            <i class="fas fa-cogs mr-2"></i>Compétences
-          </h2>
-        </div>
-        <div class="p-6">
-          <div id="competences-container"></div>
-          <button type="button" onclick="addCompetence()" class="btn-secondary">
-            <i class="fas fa-plus mr-2"></i>Ajouter une compétence
-          </button>
-        </div>
-      </section>
-
-      <!-- Section Langues -->
-      <section class="form-section">
-        <div class="section-header">
-          <h2 class="text-2xl font-bold">
-            <i class="fas fa-language mr-2"></i>Langues
-          </h2>
-        </div>
-        <div class="p-6">
-          <div id="langues-container"></div>
-          <button type="button" onclick="addLangue()" class="btn-secondary">
-            <i class="fas fa-plus mr-2"></i>Ajouter une langue
-          </button>
-        </div>
-      </section>
-
-      <!-- Boutons d'action -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-        <button type="button" onclick="saveForLater()" class="btn-secondary">
-          <i class="fas fa-save mr-2"></i>Sauvegarder pour plus tard
-        </button>
-        <button type="button" onclick="generateCV()" class="btn-primary">
-          <i class="fas fa-file-pdf mr-2"></i>Générer mon CV maintenant
-        </button>
-      </div>
-    </form>
+      </form>
+    </div>
   </main>
 
-  <!-- Scripts -->
+  <!-- Scripts - ORDRE IMPORTANT -->
+  <!-- 1. Configuration globale -->
   <script src="js/config.js"></script>
-  <script src="js/templates.js"></script>
+
+  <!-- 2. Utilitaires -->
   <script src="js/utils.js"></script>
+
+  <!-- 3. Gestion du stockage -->
   <script src="js/storage.js"></script>
+
+  <!-- 4. Gestion des templates (nécessaire pour les URLs) -->
+  <script src="js/templates.js"></script>
+
+  <!-- 5. Formulaire standard -->
   <script src="js/formulaire.js"></script>
+
+  <!-- 6. Formulaire avancé -->
+  <script src="js/formulaire-avance.js"></script>
+
+  <!-- 7. Switcher (DOIT être après les deux formulaires) -->
+  <script src="js/formulaire-switcher.js"></script>
+
+  <!-- 8. Point d'entrée principal (DOIT être en dernier) -->
   <script src="js/main.js"></script>
 
+  <!-- Script de debug pour vérifier que tout fonctionne -->
+  <script>
+    console.log('📋 Scripts chargés, vérification des fonctions :');
+    console.log('  - initFormulaire:', typeof window.initFormulaire);
+    console.log('  - initFormulaireAvance:', typeof window.initFormulaireAvance);
+    console.log('  - initFormSwitcher:', typeof window.initFormSwitcher);
+  </script>
+</body>
+</html>
 </body>
 </html>
