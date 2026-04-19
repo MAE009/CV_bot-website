@@ -46,6 +46,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <!-- Styles 2026 -->
+  <link rel="stylesheet" href="css/theme-award-dark.css">
 
   <style>
     @font-face {
@@ -57,6 +59,18 @@
   </style>
 </head>
 <body>
+  <!-- Points flottants décoratifs -->
+  <div class="floating-dots">
+      <div class="dot" style="width: 60px; height: 60px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+      <div class="dot" style="width: 30px; height: 30px; top: 25%; left: 85%; animation-delay: 2s;"></div>
+      <div class="dot" style="width: 80px; height: 80px; top: 60%; left: 10%; animation-delay: 4s;"></div>
+      <div class="dot" style="width: 40px; height: 40px; top: 75%; left: 90%; animation-delay: 1s;"></div>
+      <div class="dot" style="width: 20px; height: 20px; top: 40%; left: 50%; animation-delay: 3s;"></div>
+      <div class="dot" style="width: 50px; height: 50px; top: 85%; left: 45%; animation-delay: 2.5s;"></div>
+      <div class="dot" style="width: 25px; height: 25px; top: 15%; left: 70%; animation-delay: 5s;"></div>
+      <div class="dot" style="width: 45px; height: 45px; top: 50%; left: 20%; animation-delay: 1.5s;"></div>
+  </div>
+
   <!-- Navigation -->
   <header>
     <nav class="container mx-auto">
@@ -297,5 +311,13 @@
   <script src="js/utils.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/main.js"></script>
+
+  <script src="js/theme-switcher.js"></script>
+  <script>
+      // Initialiser le thème au chargement
+      if (typeof initTheme === 'function') {
+          initTheme();
+      }
+  </script>
 </body>
 </html>

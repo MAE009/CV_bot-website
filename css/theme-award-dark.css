@@ -1,0 +1,441 @@
+/* =======================
+   THEME AWARD DARK MINIMAL
+   ======================= */
+
+:root {
+    /* Palette sombre minimaliste */
+    --award-primary: #00FF9D;
+    --award-primary-dark: #00CC7D;
+    --award-secondary: #FF3366;
+    --award-accent: #FFD700;
+
+    /* Niveaux de gris */
+    --award-dark: #0A0A0A;
+    --award-dark-1: #111111;
+    --award-dark-2: #1A1A1A;
+    --award-dark-3: #222222;
+    --award-dark-4: #2A2A2A;
+    --award-gray: #3A3A3A;
+    --award-gray-light: #555555;
+    --award-text: #E0E0E0;
+    --award-text-muted: #888888;
+    --award-border: rgba(255, 255, 255, 0.08);
+
+    /* Ombres */
+    --award-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --award-shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --award-shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+    --award-shadow-glow: 0 0 20px rgba(0, 255, 157, 0.15);
+
+    /* Transitions */
+    --award-transition-fast: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    --award-transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    --award-transition-slow: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+/* Appliquer le thème dark minimal */
+body.award-dark-theme {
+    background: var(--award-dark);
+    color: var(--award-text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Text', sans-serif;
+    letter-spacing: -0.01em;
+    scroll-behavior: smooth;
+}
+
+/* Header version award */
+body.award-dark-theme header {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--award-border);
+    box-shadow: none;
+}
+
+body.award-dark-theme .logo {
+    color: var(--award-primary);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+body.award-dark-theme .logo i {
+    color: var(--award-primary);
+}
+
+body.award-dark-theme .nav-links a {
+    color: var(--award-text-muted);
+    font-weight: 500;
+}
+
+body.award-dark-theme .nav-links a:hover {
+    color: var(--award-primary);
+}
+
+body.award-dark-theme .nav-links a::after {
+    background: var(--award-primary);
+}
+
+/* Hero section award */
+body.award-dark-theme .hero-gradient {
+    background: linear-gradient(135deg, var(--award-dark-1), var(--award-dark-2));
+    position: relative;
+    overflow: hidden;
+}
+
+body.award-dark-theme .hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(0, 255, 157, 0.08), transparent 50%);
+    pointer-events: none;
+}
+
+body.award-dark-theme .hero-gradient::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--award-primary), transparent);
+    opacity: 0.3;
+}
+
+body.award-dark-theme .hero-gradient h1 {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #FFFFFF, var(--award-primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Boutons award */
+body.award-dark-theme .btn-primary {
+    background: linear-gradient(135deg, var(--award-primary), var(--award-primary-dark));
+    color: var(--award-dark);
+    font-weight: 600;
+    border-radius: 8px;
+    transition: var(--award-transition);
+    box-shadow: none;
+}
+
+body.award-dark-theme .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--award-shadow-glow);
+}
+
+body.award-dark-theme .btn-secondary {
+    background: transparent;
+    color: var(--award-text);
+    border: 1px solid var(--award-border);
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+body.award-dark-theme .btn-secondary:hover {
+    background: rgba(0, 255, 157, 0.1);
+    border-color: var(--award-primary);
+    color: var(--award-primary);
+    transform: translateY(-2px);
+}
+
+body.award-dark-theme .cta-button {
+    background: transparent;
+    border: 1px solid var(--award-border);
+    color: var(--award-text);
+    box-shadow: none;
+    border-radius: 40px;
+    font-weight: 500;
+}
+
+body.award-dark-theme .cta-button:hover {
+    border-color: var(--award-primary);
+    color: var(--award-primary);
+    background: rgba(0, 255, 157, 0.05);
+    transform: translateY(-2px);
+    box-shadow: none;
+}
+
+/* Cards award */
+body.award-dark-theme .card-hover {
+    background: var(--award-dark-2);
+    border: 1px solid var(--award-border);
+    border-radius: 16px;
+}
+
+body.award-dark-theme .card-hover:hover {
+    transform: translateY(-8px);
+    border-color: var(--award-primary);
+    box-shadow: var(--award-shadow-glow);
+}
+
+/* Section templates preview */
+body.award-dark-theme .templates-preview {
+    background: linear-gradient(135deg, var(--award-dark-1), var(--award-dark-2));
+}
+
+/* FAQ section award */
+body.award-dark-theme .faq-question {
+    background: var(--award-dark-2);
+    border: 1px solid var(--award-border);
+    border-radius: 12px;
+    color: var(--award-text);
+}
+
+body.award-dark-theme .faq-question:hover {
+    border-color: var(--award-primary);
+}
+
+body.award-dark-theme .faq-answer {
+    color: var(--award-text-muted);
+}
+
+/* Formulaires award */
+body.award-dark-theme .form-section {
+    background: var(--award-dark-2);
+    border: 1px solid var(--award-border);
+    border-radius: 20px;
+    box-shadow: none;
+}
+
+body.award-dark-theme .section-header {
+    background: linear-gradient(135deg, var(--award-dark-3), var(--award-dark-4));
+    border-bottom: 1px solid var(--award-border);
+    border-radius: 20px 20px 0 0;
+}
+
+body.award-dark-theme .form-label {
+    color: var(--award-text);
+    font-weight: 500;
+}
+
+body.award-dark-theme .form-input {
+    background: var(--award-dark-3);
+    border: 1px solid var(--award-border);
+    color: var(--award-text);
+    border-radius: 10px;
+}
+
+body.award-dark-theme .form-input:focus {
+    border-color: var(--award-primary);
+    box-shadow: 0 0 0 3px rgba(0, 255, 157, 0.1);
+}
+
+body.award-dark-theme .form-input::placeholder {
+    color: var(--award-text-muted);
+}
+
+body.award-dark-theme .dynamic-item {
+    background: var(--award-dark-3);
+    border: 1px solid var(--award-border);
+    border-radius: 12px;
+}
+
+body.award-dark-theme .remove-btn {
+    background: rgba(255, 51, 102, 0.2);
+    color: var(--award-secondary);
+}
+
+body.award-dark-theme .remove-btn:hover {
+    background: var(--award-secondary);
+    color: white;
+}
+
+/* Progress bar award */
+body.award-dark-theme .progress-bar {
+    background: var(--award-dark-3);
+    border-radius: 4px;
+}
+
+body.award-dark-theme .progress-fill {
+    background: linear-gradient(90deg, var(--award-primary), var(--award-primary-dark));
+    border-radius: 4px;
+}
+
+/* Save indicator award */
+body.award-dark-theme .save-indicator {
+    background: var(--award-dark-2);
+    border: 1px solid var(--award-primary);
+    color: var(--award-primary);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+/* Photo upload award */
+body.award-dark-theme .photo-upload-area {
+    border: 2px dashed var(--award-border);
+    background: var(--award-dark-3);
+    border-radius: 16px;
+}
+
+body.award-dark-theme .photo-upload-area:hover {
+    border-color: var(--award-primary);
+    background: rgba(0, 255, 157, 0.05);
+}
+
+body.award-dark-theme .photo-preview {
+    border: 3px solid var(--award-primary);
+    box-shadow: var(--award-shadow-glow);
+}
+
+/* Carrousel award */
+body.award-dark-theme .carousel-item {
+    background: var(--award-dark-2);
+    border: 1px solid var(--award-border);
+    border-radius: 16px;
+}
+
+body.award-dark-theme .carousel-item:hover {
+    border-color: var(--award-primary);
+    transform: translateY(-8px);
+}
+
+body.award-dark-theme .carousel-arrow {
+    background: var(--award-dark-3);
+    border: 1px solid var(--award-border);
+    color: var(--award-text);
+}
+
+body.award-dark-theme .carousel-arrow:hover {
+    background: var(--award-primary);
+    border-color: var(--award-primary);
+    color: var(--award-dark);
+}
+
+body.award-dark-theme .carousel-dot {
+    background: var(--award-gray);
+}
+
+body.award-dark-theme .carousel-dot.active {
+    background: var(--award-primary);
+}
+
+body.award-dark-theme .carousel-badge {
+    background: var(--award-primary);
+    color: var(--award-dark);
+    font-weight: 600;
+}
+
+/* Footer award */
+body.award-dark-theme footer {
+    background: var(--award-dark-1);
+    border-top: 1px solid var(--award-border);
+}
+
+/* Form switcher award */
+body.award-dark-theme .form-switch-btn {
+    background: transparent;
+    border: 1px solid var(--award-border);
+    color: var(--award-text-muted);
+    border-radius: 40px;
+}
+
+body.award-dark-theme .form-switch-btn.active {
+    background: var(--award-primary);
+    border-color: var(--award-primary);
+    color: var(--award-dark);
+}
+
+body.award-dark-theme .form-switch-btn:hover {
+    border-color: var(--award-primary);
+    color: var(--award-primary);
+}
+
+/* Mission items award */
+body.award-dark-theme .mission-item input {
+    background: var(--award-dark-3);
+    border: 1px solid var(--award-border);
+    color: var(--award-text);
+}
+
+/* Scrollbar personnalisée */
+body.award-dark-theme::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+body.award-dark-theme::-webkit-scrollbar-track {
+    background: var(--award-dark-2);
+}
+
+body.award-dark-theme::-webkit-scrollbar-thumb {
+    background: var(--award-gray);
+    border-radius: 4px;
+}
+
+body.award-dark-theme::-webkit-scrollbar-thumb:hover {
+    background: var(--award-primary);
+}
+
+/* Animations */
+@keyframes award-glow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes award-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.award-dark-theme .form-section {
+    animation: award-fade-in 0.5s ease-out;
+}
+
+/* Typographie premium */
+body.award-dark-theme h1,
+body.award-dark-theme h2,
+body.award-dark-theme h3 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+body.award-dark-theme .section-header h2 {
+    font-weight: 600;
+}
+
+/* Glass morphism effect */
+body.award-dark-theme .carousel-arrow,
+body.award-dark-theme .save-indicator {
+    backdrop-filter: blur(10px);
+}
+
+/* Badges et indicateurs */
+body.award-dark-theme .carousel-badge {
+    background: linear-gradient(135deg, var(--award-primary), var(--award-primary-dark));
+}
+
+/* Focus rings */
+body.award-dark-theme *:focus {
+    outline: none;
+    ring: 2px solid var(--award-primary);
+}
+
+/* Selection color */
+body.award-dark-theme ::selection {
+    background: var(--award-primary);
+    color: var(--award-dark);
+}
+
+/* Transition douce entre thèmes */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body * {
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Exceptions pour les animations */
+body .carousel-item,
+body .card-hover {
+    transition: transform 0.3s ease, border-color 0.2s ease;
+}

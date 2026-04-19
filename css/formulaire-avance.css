@@ -1,8 +1,7 @@
 /* =======================
-   STYLES FORMULAIRE AVANCÉ
+   FORMULAIRE AVANCÉ - VIVANT
    ======================= */
 
-/* Sélecteur de type de formulaire */
 .form-type-switcher {
     display: flex;
     justify-content: center;
@@ -11,117 +10,98 @@
 }
 
 .form-switch-btn {
-    padding: 0.75rem 2rem;
+    padding: 0.875rem 2rem;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid var(--primary);
+    transition: all 0.3s var(--bounce);
+    border: 2px solid var(--warm-orange);
     background: white;
-    color: var(--primary);
+    color: var(--warm-orange);
+    position: relative;
+    overflow: hidden;
 }
 
-.form-switch-btn.active {
-    background: var(--primary);
-    color: white;
+.form-switch-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-warm);
+    transition: left 0.3s var(--smooth);
+    z-index: -1;
 }
 
 .form-switch-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--glow-warm);
+}
+
+.form-switch-btn:hover::before {
+    left: 0;
+}
+
+.form-switch-btn.active {
+    background: var(--gradient-warm);
+    color: white;
+    border-color: transparent;
 }
 
 /* Missions items */
 .mission-item {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
     align-items: center;
 }
 
-/* Badge pour indiquer le formulaire actif */
-.form-badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-left: 1rem;
+.mission-item input {
+    flex: 1;
 }
 
-.form-badge.standard {
-    background: var(--secondary);
+.mission-item button {
+    background: linear-gradient(135deg, #FF6B35, #E85D04);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
     color: white;
+    cursor: pointer;
+    transition: all 0.3s var(--bounce);
 }
 
-.form-badge.avance {
-    background: var(--primary);
-    color: white;
+.mission-item button:hover {
+    transform: scale(1.1) rotate(90deg);
 }
 
-/* Conteneurs de formulaires */
-.form-container {
-    transition: opacity 0.3s ease;
-}
-
-.form-container.hidden {
-    display: none;
-}
-
-/* Améliorations responsive pour le formulaire avancé */
-@media (max-width: 768px) {
-    .form-switch-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    .mission-item {
-        flex-direction: column;
-    }
-
-    .mission-item button {
-        align-self: flex-end;
-    }
-}
-
-/* Style pour les boutons actifs */
-.form-switch-btn.active {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-    box-shadow: 0 2px 8px rgba(109, 58, 255, 0.3);
-}
-
-.form-switch-btn.active i {
-    color: white;
-}
-
-/* Transition fluide entre les formulaires */
-.form-container {
-    transition: opacity 0.3s ease-in-out;
-}
-
-.form-container.hidden {
-    display: none !important;
-}
-
-/* Message d'information */
+/* Message info */
 #advanced-info-message {
-    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 184, 140, 0.1));
+    border-left: 4px solid var(--warm-orange);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 0.4s var(--bounce);
 }
 
-#advanced-info-message.show {
-    display: block !important;
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Style pour le bouton avancé désactivé */
-#switch-to-avance[disabled] {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background: #ccc;
-    border-color: #999;
-}
-
-#switch-to-avance[disabled]:hover {
-    transform: none;
-    box-shadow: none;
+/* Select stylisé */
+select.form-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23FF6B35'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
 }
