@@ -3,7 +3,7 @@
    ======================= */
 
 :root {
-    /* Couleurs chaudes et vibrantes */
+    /* Couleurs chaudes et vibrantes - thème clair */
     --warm-orange: #FF6B35;
     --warm-coral: #FF8C69;
     --warm-peach: #FFB88C;
@@ -18,6 +18,19 @@
     --deep-plum: #5D2E4A;
     --warm-gray: #4A4A4A;
     --soft-charcoal: #2C2C2C;
+
+    /* Variables d'alias pour compatibilité */
+    --primary: var(--warm-orange);
+    --secondary: var(--warm-coral);
+    --accent: var(--warm-gold);
+    --dark: #1A1A1A;
+    --light: #F7FFF7;
+    --mint: #4D9078;
+    --blue: #5EC2D0;
+
+    /* Gradient pour templates preview */
+    --gradient-dark: linear-gradient(135deg, #1A1A1A, #2C2C2C);
+    --gradient-primary: var(--gradient-warm);
 
     /* Éclairage */
     --glow-warm: 0 0 30px rgba(255, 107, 53, 0.3);
