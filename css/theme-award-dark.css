@@ -528,3 +528,131 @@ body.award-dark-theme .text-center .inline-block.bg-white:hover {
     background: var(--award-primary) !important;
     color: var(--award-dark) !important;
 }
+
+/* Sections templates (Simple ATS, Moderne, Créatif) en mode sombre */
+body.award-dark-theme #simple,
+body.award-dark-theme #moderne,
+body.award-dark-theme #creatif {
+    background: var(--award-dark-2) !important;
+}
+
+/* Titres des sections templates en mode sombre */
+body.award-dark-theme #simple h2,
+body.award-dark-theme #moderne h2,
+body.award-dark-theme #creatif h2 {
+    color: var(--award-primary) !important;
+}
+
+/* Description des sections templates en mode sombre */
+body.award-dark-theme #simple .text-gray-600,
+body.award-dark-theme #moderne .text-gray-600,
+body.award-dark-theme #creatif .text-gray-600 {
+    color: var(--award-text-muted) !important;
+}
+
+/* Carrousel items en mode sombre (déjà partiellement géré) */
+body.award-dark-theme .carousel-item {
+    background: var(--award-dark-3) !important;
+    border: 1px solid var(--award-border);
+}
+
+body.award-dark-theme .carousel-item .carousel-content h3 {
+    color: var(--award-text) !important;
+}
+
+body.award-dark-theme .carousel-item .carousel-content p {
+    color: var(--award-text-muted) !important;
+}
+
+body.award-dark-theme .carousel-item .btn-use-template {
+    color: var(--award-primary) !important;
+}
+
+body.award-dark-theme .carousel-item .btn-use-template:hover {
+    color: var(--award-primary-dark) !important;
+}
+
+/* Sous-titre en mode sombre */
+body.award-dark-theme .text-gray-600 {
+    color: var(--award-text-muted) !important;
+}
+
+/* Description sous le titre */
+body.award-dark-theme .text-center .text-gray-600 {
+    color: var(--award-text-muted) !important;
+}
+
+/* Message d'information avancé en mode sombre */
+body.award-dark-theme #advanced-info-message {
+    background: rgba(0, 255, 157, 0.1) !important;
+    border-left-color: var(--award-primary) !important;
+}
+
+body.award-dark-theme #advanced-info-message span {
+    color: var(--award-text) !important;
+}
+
+body.award-dark-theme #advanced-info-message i {
+    color: var(--award-primary) !important;
+}
+
+/* Photo upload area en mode sombre (déjà partiellement géré, mais à compléter) */
+body.award-dark-theme .photo-upload-area p {
+    color: var(--award-text-muted) !important;
+}
+
+body.award-dark-theme .photo-upload-area .text-sm {
+    color: var(--award-text-muted) !important;
+}
+
+/* Boutons secondaires dans le formulaire */
+body.award-dark-theme .btn-secondary {
+    background: transparent;
+    color: var(--award-text);
+    border: 1px solid var(--award-border);
+}
+
+body.award-dark-theme .btn-secondary:hover {
+    background: rgba(0, 255, 157, 0.1);
+    border-color: var(--award-primary);
+    color: var(--award-primary);
+}
+
+/* Boutons primaires dans le formulaire */
+body.award-dark-theme .btn-primary {
+    background: linear-gradient(135deg, var(--award-primary), var(--award-primary-dark));
+    color: var(--award-dark);
+}
+
+body.award-dark-theme .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--award-shadow-glow);
+}
+
+/* Section header en mode sombre (déjà fait, mais vérification) */
+body.award-dark-theme .section-header {
+    background: linear-gradient(135deg, var(--award-dark-3), var(--award-dark-4));
+}
+
+body.award-dark-theme .section-header h2 {
+    color: var(--award-primary) !important;
+}
+
+body.award-dark-theme .section-header i {
+    color: var(--award-primary) !important;
+}
+
+/* Progress bar en mode sombre */
+body.award-dark-theme .progress-bar {
+    background: var(--award-dark-3);
+}
+
+body.award-dark-theme .progress-fill {
+    background: linear-gradient(90deg, var(--award-primary), var(--award-primary-dark));
+}
+
+/* Save indicator en mode sombre */
+body.award-dark-theme .save-indicator {
+    background: var(--award-primary);
+    color: var(--award-dark);
+}
