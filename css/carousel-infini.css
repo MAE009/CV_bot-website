@@ -41,12 +41,14 @@
     box-shadow: var(--glow-warm);
 }
 
+
+/* Pour desktop */
 .carousel-prev {
-    left: -24px;
+    left: -10px;  /* Changé de -24px à -10px */
 }
 
 .carousel-next {
-    right: -24px;
+    right: -10px;  /* Changé de -24px à -10px */
 }
 
 /* Points de navigation vivants */
@@ -152,26 +154,55 @@
     margin-bottom: 1rem;
 }
 
-/* Responsive */
+
+
+
+/* Pour tablette */
 @media (max-width: 768px) {
-    .carousel-container {
-        margin: 0 30px;
-    }
-
-    .carousel-arrow {
-        width: 36px;
-        height: 36px;
-    }
-
     .carousel-prev {
-        left: -18px;
+        left: -5px;  /* Changé de -18px à -5px */
     }
 
     .carousel-next {
-        right: -18px;
-    }
-
-    .carousel-img {
-        height: 160px;
+        right: -5px;  /* Changé de -18px à -5px */
     }
 }
+
+/* Pour mobile */
+@media (max-width: 480px) {
+    .carousel-prev {
+        left: -3px;  /* Changé de -18px à -3px */
+    }
+
+    .carousel-next {
+        right: -3px;  /* Changé de -18px à -3px */
+    }
+}
+
+
+
+
+
+/*!* Responsive *!*/
+/*@media (max-width: 768px) {*/
+/*    .carousel-container {*/
+/*        margin: 0 30px;*/
+/*    }*/
+
+/*    .carousel-arrow {*/
+/*        width: 36px;*/
+/*        height: 36px;*/
+/*    }*/
+
+/*    .carousel-prev {*/
+/*        left: -18px;*/
+/*    }*/
+
+/*    .carousel-next {*/
+/*        right: -18px;*/
+/*    }*/
+
+/*    .carousel-img {*/
+/*        height: 160px;*/
+/*    }*/
+/*}*/

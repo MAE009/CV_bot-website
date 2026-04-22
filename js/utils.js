@@ -9,15 +9,20 @@ window.initMobileMenu = function() {
 
     if (!menuToggle || !navLinks) return;
 
-    menuToggle.addEventListener('click', () => {
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', !isExpanded);
+    // Supprimer les anciens événements en clonant
+    const newMenuToggle = menuToggle.cloneNode(true);
+    menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+
+    // CORRECTION : utiliser newMenuToggle au lieu de menuToggle
+    newMenuToggle.addEventListener('click', () => {
+        const isExpanded = newMenuToggle.getAttribute('aria-expanded') === 'true';
+        newMenuToggle.setAttribute('aria-expanded', !isExpanded);
         navLinks.classList.toggle('active');
 
         if (navLinks.classList.contains('active')) {
-            menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+            newMenuToggle.innerHTML = '<i class="fas fa-times"></i>';
         } else {
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            newMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
         }
     });
 
@@ -25,12 +30,14 @@ window.initMobileMenu = function() {
         link.addEventListener('click', () => {
             if (window.innerWidth <= 768) {
                 navLinks.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                newMenuToggle.setAttribute('aria-expanded', 'false');
+                newMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
             }
         });
     });
 };
+
+
 
 // Smooth scrolling pour les ancres
 window.initSmoothScroll = function() {

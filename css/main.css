@@ -492,6 +492,14 @@ footer::before {
 }
 
 /* Menu toggle */
+/* Conteneur des boutons à droite */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Bouton menu - caché sur desktop */
 .menu-toggle {
     display: none;
     background: none;
@@ -499,6 +507,7 @@ footer::before {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--warm-orange);
+    /*transition: all 0.3s ease;*/
 }
 
 /* Responsive */
@@ -511,6 +520,36 @@ footer::before {
         padding: 0 1rem;
     }
 
+    /* Afficher le bouton menu sur mobile */
+    .menu-toggle {
+        display: flex !important;  /* Forcer l'affichage */
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 107, 53, 0.1);
+        border: 1px solid rgba(255, 107, 53, 0.2);
+    }
+
+    .menu-toggle:hover {
+        background: var(--warm-orange);
+        color: white;
+    }
+
+    /* Ajuster la taille des boutons sur mobile */
+    .theme-switcher-btn {
+        width: 40px;
+        height: 40px;
+    },
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+        font-size: 1.2rem;
+    }
+
+
+    /* Cacher les liens de navigation par défaut */
     .nav-links {
         position: fixed;
         top: 70px;
@@ -523,6 +562,7 @@ footer::before {
         overflow: hidden;
         transition: max-height 0.3s ease;
         box-shadow: var(--glow-soft);
+        z-index: 999;
     }
 
     .nav-links.active {

@@ -42,7 +42,7 @@ function createThemeSwitcher() {
     // Vérifier si le bouton existe déjà
     if (document.querySelector('.theme-switcher-btn')) return;
 
-    const nav = document.querySelector('nav');
+    const nav = document.querySelector('.nav-right');
     if (!nav) return;
 
     const themeBtn = document.createElement('button');
