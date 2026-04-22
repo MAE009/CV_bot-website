@@ -28,13 +28,7 @@ class InfiniteCarousel {
         setTimeout(() => this.init(), 100);
     }
 
-    getVisibleSlides() {
-        if (window.innerWidth < 640) return 1;
-        if (window.innerWidth < 768) return 1;
-        if (window.innerWidth < 1024) return 2;
-        if (window.innerWidth < 1280) return 3;
-        return 4;
-    }
+
 
     init() {
         console.log('🔄 Initialisation du carrousel infini...');
@@ -62,7 +56,8 @@ class InfiniteCarousel {
         // Créer la navigation
         this.createNavigation();
 
-        // Position initiale
+        // Utiliser ResponsiveManager pour le nombre de slides
+        this.options.visibleSlides = window.ResponsiveManager.getVisibleSlides();
         this.currentIndex = this.options.visibleSlides;
         this.updatePosition(false);
 
@@ -256,13 +251,16 @@ class InfiniteCarousel {
         });
     }
 
+    getVisibleSlides() {
+        // Déléguer à ResponsiveManager
+        return window.ResponsiveManager.getVisibleSlides();
+    }
+
     bindEvents() {
-        // Redimensionnement
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                const newVisibleSlides = this.getVisibleSlides();
+        // Utiliser ResponsiveManager au lieu de l'écoute directe
+        if (window.ResponsiveManager) {
+            this.resizeListener = (data) => {
+                const newVisibleSlides = data.visibleSlides;
                 if (newVisibleSlides !== this.options.visibleSlides) {
                     this.options.visibleSlides = newVisibleSlides;
                     this.rebuild();
@@ -270,14 +268,29 @@ class InfiniteCarousel {
                     this.updateSlideWidth();
                     this.updatePosition(false);
                 }
-            }, 250);
-        });
+            };
+            window.ResponsiveManager.addListener(this.resizeListener);
+        } else {
+            // Fallback si ResponsiveManager n'est pas chargé
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    const newVisibleSlides = this.getVisibleSlides();
+                    if (newVisibleSlides !== this.options.visibleSlides) {
+                        this.options.visibleSlides = newVisibleSlides;
+                        this.rebuild();
+                    } else {
+                        this.updateSlideWidth();
+                        this.updatePosition(false);
+                    }
+                }, 150);
+            });
+        }
 
         // Pause autoplay au survol
         this.container.addEventListener('mouseenter', () => this.stopAutoPlay());
         this.container.addEventListener('mouseleave', () => this.startAutoPlay());
-
-        // Touch events pour mobile
         this.container.addEventListener('touchstart', () => this.stopAutoPlay());
         this.container.addEventListener('touchend', () => this.startAutoPlay());
     }
@@ -316,7 +329,11 @@ class InfiniteCarousel {
     // Méthode publique pour détruire le carrousel
     destroy() {
         this.stopAutoPlay();
-        // Restaurer le conteneur original
+
+        if (this.resizeListener && window.ResponsiveManager) {
+            window.ResponsiveManager.removeListener(this.resizeListener);
+        }
+
         this.container.innerHTML = '';
         this.originalSlides.forEach(slide => {
             this.container.appendChild(slide.cloneNode(true));
@@ -324,13 +341,13 @@ class InfiniteCarousel {
         this.container.style.transform = '';
         this.container.style.transition = '';
 
-        // Supprimer la navigation
         const wrapper = this.container.parentElement;
         const arrows = wrapper.querySelectorAll('.carousel-arrow');
         arrows.forEach(arrow => arrow.remove());
         const nav = wrapper.querySelector('.carousel-nav');
         if (nav) nav.remove();
     }
+
 }
 
 // Export pour utilisation globale

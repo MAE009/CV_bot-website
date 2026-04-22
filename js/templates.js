@@ -58,6 +58,10 @@ function renderCarousel(category, containerId) {
 
 // Initialiser tous les carrousels infinis
 function initInfiniteCarousels() {
+    // Utiliser ResponsiveManager pour le nombre de slides
+    const visibleSlides = window.ResponsiveManager ?
+    window.ResponsiveManager.getVisibleSlides() : getVisibleSlidesCount();
+
     // Carrousel ATS
     const atsContainer = document.getElementById('carousel-ats');
     if (atsContainer && atsContainer.children.length > 0) {
@@ -66,7 +70,7 @@ function initInfiniteCarousels() {
             autoPlay: true,
             autoPlaySpeed: 5000,
             gap: 24,
-            visibleSlides: getVisibleSlidesCount()
+            visibleSlides: visibleSlides
         });
     }
 
@@ -78,7 +82,7 @@ function initInfiniteCarousels() {
             autoPlay: true,
             autoPlaySpeed: 5000,
             gap: 24,
-            visibleSlides: getVisibleSlidesCount()
+            visibleSlides: visibleSlides
         });
     }
 
@@ -90,19 +94,20 @@ function initInfiniteCarousels() {
             autoPlay: true,
             autoPlaySpeed: 5000,
             gap: 24,
-            visibleSlides: getVisibleSlidesCount()
+            visibleSlides: visibleSlides
         });
     }
 
     console.log('✅ Tous les carrousels infinis sont initialisés');
 }
 
-// Fonction helper pour le nombre de slides visibles
+// Fallback si ResponsiveManager n'est pas chargé
 function getVisibleSlidesCount() {
-    if (window.innerWidth < 640) return 1;
-    if (window.innerWidth < 768) return 1;
-    if (window.innerWidth < 1024) return 2;
-    if (window.innerWidth < 1280) return 3;
+    const width = window.innerWidth;
+    if (width < 640) return 1;
+    if (width < 768) return 1;
+    if (width < 1024) return 2;
+    if (width < 1280) return 3;
     return 4;
 }
 
@@ -114,11 +119,10 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
-// Redémarrer les carrousels au redimensionnement
-window.addEventListener('resize', () => {
-    clearTimeout(window.resizeTimer);
-    window.resizeTimer = setTimeout(() => {
-        const newVisibleSlides = getVisibleSlidesCount();
+// Utiliser ResponsiveManager pour le resize si disponible
+if (window.ResponsiveManager) {
+    window.ResponsiveManager.addListener(function(data) {
+        const newVisibleSlides = data.visibleSlides;
         if (carousels.ats) {
             carousels.ats.options.visibleSlides = newVisibleSlides;
             carousels.ats.rebuild();
@@ -131,5 +135,25 @@ window.addEventListener('resize', () => {
             carousels.creatif.options.visibleSlides = newVisibleSlides;
             carousels.creatif.rebuild();
         }
-    }, 250);
-});
+    });
+} else {
+    // Fallback
+    window.addEventListener('resize', () => {
+        clearTimeout(window.resizeTimer);
+        window.resizeTimer = setTimeout(() => {
+            const newVisibleSlides = getVisibleSlidesCount();
+            if (carousels.ats) {
+                carousels.ats.options.visibleSlides = newVisibleSlides;
+                carousels.ats.rebuild();
+            }
+            if (carousels.moderne) {
+                carousels.moderne.options.visibleSlides = newVisibleSlides;
+                carousels.moderne.rebuild();
+            }
+            if (carousels.creatif) {
+                carousels.creatif.options.visibleSlides = newVisibleSlides;
+                carousels.creatif.rebuild();
+            }
+        }, 150);
+    });
+}

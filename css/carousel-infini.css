@@ -1,16 +1,41 @@
 /* =======================
    CARROUSEL VIVANT & ORGANIQUE
+   Breakpoints synchronisés avec JS
    ======================= */
 
 .carousel-wrapper {
     position: relative;
-    padding: 20px 0;
+    padding: 15px 0;
+}
+
+@media (min-width: 768px) {
+    .carousel-wrapper {
+        padding: 20px 0;
+    }
 }
 
 .carousel-container {
     overflow: hidden;
     position: relative;
-    margin: 0 50px;
+    margin: 0 20px;
+}
+
+@media (min-width: 640px) {
+    .carousel-container {
+        margin: 0 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-container {
+        margin: 0 40px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-container {
+        margin: 0 50px;
+    }
 }
 
 /* Flèches organiques */
@@ -18,8 +43,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
     background: white;
     border: none;
     border-radius: 50%;
@@ -31,7 +56,31 @@
     transition: all 0.3s var(--bounce);
     box-shadow: var(--glow-soft);
     color: var(--warm-orange);
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 640px) {
+    .carousel-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-arrow {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
 }
 
 .carousel-arrow:hover {
@@ -42,28 +91,78 @@
 }
 
 .carousel-prev {
-    left: -24px;
+    left: -15px;
+}
+
+@media (min-width: 640px) {
+    .carousel-prev {
+        left: -18px;
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-prev {
+        left: -22px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-prev {
+        left: -24px;
+    }
 }
 
 .carousel-next {
-    right: -24px;
+    right: -15px;
 }
 
-/* Points de navigation vivants */
+@media (min-width: 640px) {
+    .carousel-next {
+        right: -18px;
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-next {
+        right: -22px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-next {
+        right: -24px;
+    }
+}
+
+/* Points de navigation */
 .carousel-nav {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-top: 30px;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .carousel-nav {
+        gap: 12px;
+        margin-top: 30px;
+    }
 }
 
 .carousel-dot {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: rgba(255, 107, 53, 0.3);
     cursor: pointer;
     transition: all 0.3s var(--bounce);
+}
+
+@media (min-width: 768px) {
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+    }
 }
 
 .carousel-dot:hover {
@@ -73,14 +172,21 @@
 
 .carousel-dot.active {
     background: var(--warm-orange);
-    width: 30px;
-    border-radius: 15px;
+    width: 20px;
+    border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+    .carousel-dot.active {
+        width: 30px;
+        border-radius: 15px;
+    }
 }
 
 /* Items du carrousel */
 .carousel-item {
     background: white;
-    border-radius: 24px;
+    border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--glow-soft);
     transition: all 0.4s var(--smooth);
@@ -88,16 +194,52 @@
     border: 1px solid rgba(255, 107, 53, 0.1);
 }
 
+@media (min-width: 768px) {
+    .carousel-item {
+        border-radius: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-item {
+        border-radius: 24px;
+    }
+}
+
 .carousel-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-warm);
     border-color: rgba(255, 107, 53, 0.3);
 }
 
+@media (min-width: 1024px) {
+    .carousel-item:hover {
+        transform: translateY(-10px);
+    }
+}
+
 .carousel-img {
-    height: 220px;
+    height: 140px;
     overflow: hidden;
     position: relative;
+}
+
+@media (min-width: 640px) {
+    .carousel-img {
+        height: 160px;
+    }
+}
+
+@media (min-width: 768px) {
+    .carousel-img {
+        height: 180px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-img {
+        height: 220px;
+    }
 }
 
 .carousel-img img {
@@ -108,20 +250,44 @@
 }
 
 .carousel-item:hover .carousel-img img {
-    transform: scale(1.08);
+    transform: scale(1.05);
+}
+
+@media (min-width: 1024px) {
+    .carousel-item:hover .carousel-img img {
+        transform: scale(1.08);
+    }
 }
 
 .carousel-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 8px;
+    right: 8px;
     background: var(--gradient-warm);
     color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 16px;
+    font-size: 0.6rem;
     font-weight: 600;
     animation: badgePulse 2s infinite;
+}
+
+@media (min-width: 768px) {
+    .carousel-badge {
+        top: 10px;
+        right: 10px;
+        padding: 4px 10px;
+        font-size: 0.65rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-badge {
+        top: 12px;
+        right: 12px;
+        padding: 4px 12px;
+        font-size: 0.7rem;
+    }
 }
 
 @keyframes badgePulse {
@@ -136,42 +302,56 @@
 }
 
 .carousel-content {
-    padding: 1.5rem;
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .carousel-content {
+        padding: 1.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-content {
+        padding: 1.5rem;
+    }
 }
 
 .carousel-content h3 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     color: var(--warm-gray);
+}
+
+@media (min-width: 768px) {
+    .carousel-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-content h3 {
+        font-size: 1.25rem;
+    }
 }
 
 .carousel-content p {
     color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .carousel-container {
-        margin: 0 30px;
+@media (min-width: 768px) {
+    .carousel-content p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
     }
+}
 
-    .carousel-arrow {
-        width: 36px;
-        height: 36px;
-    }
-
-    .carousel-prev {
-        left: -18px;
-    }
-
-    .carousel-next {
-        right: -18px;
-    }
-
-    .carousel-img {
-        height: 160px;
+@media (min-width: 1024px) {
+    .carousel-content p {
+        font-size: 0.9rem;
     }
 }
