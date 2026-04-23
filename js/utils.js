@@ -56,9 +56,19 @@ window.initSmoothScroll = function() {
 
 // FAQ Accordéon
 window.initFaqAccordion = function() {
-    document.querySelectorAll('.faq-question').forEach(button => {
-        button.addEventListener('click', () => {
-            const item = button.parentNode;
+    console.log('🎯 Initialisation de la FAQ accordéon...');
+
+    const faqButtons = document.querySelectorAll('.faq-question');
+    console.log(`📊 ${faqButtons.length} boutons FAQ trouvés`);
+
+    faqButtons.forEach(button => {
+        // Éviter les doublons d'événements
+        button.removeEventListener('click', button._listener);
+
+        const listener = () => {
+            const item = button.closest('.faq-item');
+            if (!item) return;
+
             item.classList.toggle('active');
 
             const icon = button.querySelector('i');
@@ -67,7 +77,10 @@ window.initFaqAccordion = function() {
                     ? 'rotate(180deg)'
                     : 'rotate(0)';
             }
-        });
+        };
+
+        button._listener = listener;
+        button.addEventListener('click', listener);
     });
 };
 

@@ -656,3 +656,56 @@ body.award-dark-theme .save-indicator {
     background: var(--award-primary);
     color: var(--award-dark);
 }
+
+/* FAQ accordéon mode sombre */
+body.award-dark-theme .faq-question {
+    background: var(--award-dark-2) !important;
+    color: var(--award-text);
+}
+
+body.award-dark-theme .faq-question:hover {
+    color: var(--award-primary);
+}
+
+body.award-dark-theme .faq-answer {
+    background: var(--award-dark-2) !important;
+}
+
+body.award-dark-theme .faq-answer p {
+    color: var(--award-text-muted);
+}
+
+/* Footer en mode sombre - correction complète */
+body.award-dark-theme footer {
+    background: var(--award-dark-1) !important;
+    border-top: 1px solid var(--award-border);
+}
+
+body.award-dark-theme footer .text-gray-400 {
+    color: var(--award-text-muted) !important;
+}
+
+body.award-dark-theme footer .border-t {
+    border-color: var(--award-border) !important;
+}
+
+body.award-dark-theme footer a.text-gray-400 {
+    color: var(--award-text-muted) !important;
+}
+
+body.award-dark-theme footer a.text-gray-400:hover {
+    color: var(--award-primary) !important;
+}
+
+body.award-dark-theme footer .text-xl {
+    color: var(--award-primary) !important;
+}
+
+/* Footer override */
+body.award-dark-theme footer {
+    background: var(--award-dark-1);
+}
+
+body.award-dark-theme footer::before {
+    background: linear-gradient(90deg, transparent, var(--award-primary), transparent);
+}
