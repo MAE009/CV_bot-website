@@ -18,23 +18,25 @@ window.COLORS = {
 // Configuration des templates
 window.TEMPLATES_CONFIG = {
     ats: [
-        { image: "Assets/Cv/Cv_restaurant.jpg", titre: "ats", desc: "Structure claire et professionnelle", category: "ATS" },
-        { image: "Assets/Cv/ats-minimaliste.jpg", titre: "ats_classique", desc: "", category: "ATS" },
-        { image: "Assets/Cv/ats-professionnel.jpg", titre: "ats_moderne", desc: "", category: "ATS" },
-        { image: "Assets/Cv/ats-fonctionnel.jpg", titre: "ats_minimaliste", desc: "", category: "ATS" }
+        { image: "Assets/Cv/ATS/ats.jpg", titre: "Pro", desc: "Structure claire et professionnelle", template: "ats", category: "ATS" },
+        { image: "Assets/Cv/ATS/ats_classique.jpg", titre: "ats_classique", desc: "", template: "ats_classique", category: "ATS" },
+        { image: "Assets/Cv/ATS/ats_moderne.jpg", titre: "ats_moderne", desc: "", template: "ats_moderne", category: "ATS" },
+        { image: "Assets/Cv/ATS/ats_minimaliste.jpg", titre: "ats_minimaliste", desc: "", template: "ats_minimaliste", category: "ATS" }
     ],
     moderne: [
-        { image: "Assets/Cv/Cv_restaurant.jpg", titre: "mod", desc: "", category: "Moderne" },
-        { image: "Assets/Cv/moderne-elegant.jpg", titre: "mod_blue", desc: "", category: "Moderne" },
-        { image: "Assets/Cv/moderne-innovant.jpg", titre: "cv_etudiant", desc: "", category: "Moderne" },
-        { image: "Assets/Cv/moderne-innovant.jpg", titre: "cv_etudiant_1", desc: "", category: "Moderne" },
-        { image: "Assets/Cv/moderne-dynamique.jpg", titre: "cv_etudiant_ats", desc: "", category: "Moderne" }
+        { image: "Assets/Cv/MODERNE/mod.jpg", titre: "mod", desc: "", template: "mod", category: "Moderne" },
+        { image: "Assets/Cv/MODERNE/mod_blue.jpg", titre: "mod_blue", desc: "", template: "mod_blue", category: "Moderne" },
+        { image: "Assets/Cv/MODERNE/mod_white_orange.jpg", titre: "mod_white_orange.pdf", desc: "", template: "mod_white_orange", category: "Moderne" },
+        { image: "Assets/Cv/MODERNE/cv_etudiant.jpg", titre: "cv_etudiant", desc: "", template: "cv_etudiant", category: "Moderne" },
+        { image: "Assets/Cv/MODERNE/cv_etudiant_1.jpg", titre: "cv_etudiant_1", desc: "", template: "cv_etudiant_1", category: "Moderne" },
+        { image: "Assets/Cv/MODERNE/cv_etudiant_2.jpg", titre: "cv_etudiant_2", desc: "", template: "cv_etudiant_2", category: "Moderne" },
+        { image: "Assets/Cv/MODERNE/cv_etudiant_ats.jpg", titre: "cv_etudiant_ats", desc: "", template: "cv_etudiant_ats", category: "Moderne" }
     ],
     creatif: [
-        { image: "Assets/Cv/creatif-artistique.jpg", titre: "crea", desc: "Pour les métiers du design", category: "Creative" },
-        { image: "Assets/Cv/creatif-original.jpg", titre: "crea2", desc: "Hors des sentiers battus", category: "Creative" },
-        { image: "Assets/Cv/creatif-colore.jpg", titre: "crea3", desc: "Utilisation audacieuse de la couleur", category: "Creative" },
-        { image: "Assets/Cv/creatif-portfolio.jpg", titre: "Crea4", desc: "Espace pour vos réalisations", category: "Creative" }
+        { image: "Assets/Cv/Crea.jpg", titre: "crea", desc: "Pour les métiers du design", template: "Crea", category: "Creative" },
+        { image: "Assets/Cv/Crea2.jpg", titre: "crea2", desc: "Hors des sentiers battus", template: "Crea2", category: "Creative" },
+        { image: "Assets/Cv/Crea3.jpg", titre: "crea3", desc: "Utilisation audacieuse de la couleur", template: "Crea3", category: "Creative" },
+        { image: "Assets/Cv/Crea4.jpg", titre: "Crea4", desc: "Espace pour vos réalisations", template: "Crea4", category: "Creative" }
     ]
 };
 

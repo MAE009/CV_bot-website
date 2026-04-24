@@ -46,7 +46,7 @@ function renderCarousel(category, containerId) {
                     <h3 class="text-xl font-bold mb-2">${escapeHtml(cv.titre)}</h3>
                     <p class="text-gray-600 mb-4">${escapeHtml(cv.desc)}</p>
                     <div class="flex gap-2">
-                        <a href="Formulaire.html?template=${cv.titre}&category=${cv.category}" class="btn-use-template" style="color: var(--primary); font-weight: 600;">
+                        <a href="Formulaire.html?template=${cv.template}&category=${cv.category}" class="btn-use-template" style="color: var(--primary); font-weight: 600;">
                             Utiliser ce template →
                         </a>
                     </div>
