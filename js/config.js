@@ -26,10 +26,12 @@ window.TEMPLATES_CONFIG = {
         { image: "/assets/Cv/ATS/ats_minimaliste.jpg", titre: "ats_minimaliste", desc: "", template: "ats_minimaliste", category: "ATS" }
     ],
     moderne: [
-        { image: "/assets/Cv/MODERNE/mod.jpg", titre: "mod", desc: "", template: "mod", category: "Moderne" },
         { image: "/assets/Cv/MODERNE/mod_blue.jpg", titre: "mod_blue", desc: "", template: "mod_blue", category: "Moderne" },
         { image: "/assets/Cv/MODERNE/mod_white_orange.jpg", titre: "mod_white_orange.pdf", desc: "", template: "mod_white_orange", category: "Moderne" },
         { image: "/assets/Cv/MODERNE/cv_etudiant.jpg", titre: "cv_etudiant", desc: "", template: "cv_etudiant", category: "Moderne" },
+        { image: "/assets/Cv/MODERNE/cv_etudiant_rosegold.jpg", titre: "ROSE GOLD / COSMOPOLITAIN", desc: "Design féminin/luxueux avec des tons rose cuivré et dorés", template: "cv_etudiant_rosegold", category: "Moderne"},
+        { image: "/assets/Cv/MODERNE/cv_etudiant_dark.jpg", titre: "DARK MODE / TECH ", desc: "Design sombre moderne pour profils tech, développeurs, créatifs", template: "cv_etudiant_dark", category: "Moderne"},
+        { image: "/assets/Cv/MODERNE/cv_etudiant_swiss.jpg", titre: "MINIMALIST / SWISS STYLE", desc: "Design ultra épuré inspiré du style suisse, parfait pour architecture, design, arts", template: "cv_etudiant_swiss", category: "Moderne"},
         { image: "/assets/Cv/MODERNE/cv_etudiant_1.jpg", titre: "cv_etudiant_1", desc: "", template: "cv_etudiant_1", category: "Moderne" },
         { image: "/assets/Cv/MODERNE/cv_etudiant_2.jpg", titre: "cv_etudiant_2", desc: "", template: "cv_etudiant_2", category: "Moderne" },
         { image: "/assets/Cv/MODERNE/cv_etudiant_ats.jpg", titre: "cv_etudiant_ats", desc: "", template: "cv_etudiant_ats", category: "Moderne" }
