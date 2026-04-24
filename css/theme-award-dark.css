@@ -84,6 +84,41 @@ body.award-dark-theme .nav-links a::after {
     background: var(--award-primary);
 }
 
+
+/* Bouton menu en mode sombre */
+body.award-dark-theme .menu-toggle {
+    color: var(--award-primary) !important;
+    background: rgba(0, 255, 157, 0.1);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+}
+
+body.award-dark-theme .menu-toggle:hover {
+    background: var(--award-primary);
+    color: var(--award-dark);
+}
+
+/* Bouton thème en mode sombre */
+body.award-dark-theme .theme-switcher-btn {
+    background: rgba(0, 255, 157, 0.1) !important;
+    border: 1px solid rgba(0, 255, 157, 0.2) !important;
+}
+
+body.award-dark-theme .theme-switcher-btn i {
+    color: var(--award-primary) !important;
+}
+
+body.award-dark-theme .theme-switcher-btn:hover {
+    background: var(--award-primary) !important;
+}
+
+body.award-dark-theme .theme-switcher-btn:hover i {
+    color: var(--award-dark) !important;
+}
+
+
+
+
+
 /* Hero section award */
 body.award-dark-theme .hero-gradient {
     background: linear-gradient(135deg, var(--award-dark-1), var(--award-dark-2));
@@ -708,4 +743,14 @@ body.award-dark-theme footer {
 
 body.award-dark-theme footer::before {
     background: linear-gradient(90deg, transparent, var(--award-primary), transparent);
+}
+
+body.award-dark-theme .btn-telegram {
+    background: var(--award-primary);
+    color: var(--award-dark);
+}
+
+body.award-dark-theme .btn-telegram:hover {
+    background: var(--award-primary-dark);
+    color: var(--award-dark);
 }

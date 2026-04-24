@@ -742,3 +742,18 @@ footer a.text-gray-400:hover {
     color: var(--text-muted);
     line-height: 1.6;
 }
+
+.btn-telegram {
+    background: var(--warm-orange);
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-telegram:hover {
+    background: var(--soft-charcoal);
+    transform: translateY(-2px);
+}
