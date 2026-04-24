@@ -251,22 +251,26 @@ nav {
     background: white;
 }
 
+/* CORRECTION : btn-secondary pour mode clair */
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
+    background: var(--warm-orange);
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: none;
     padding: 0.875rem 1.75rem;
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .btn-secondary:hover {
-    background: white;
-    color: var(--warm-orange);
+    background: var(--warm-coral);
     transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 140, 105, 0.3);
 }
 
 /* Cartes avec effet organique */
