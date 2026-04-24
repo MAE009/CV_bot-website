@@ -15,10 +15,16 @@ window.COLORS = {
     darkLight: '#3A4750'
 };
 
+// Base URL pour les images (change selon l'environnement)
+const BASE_URL = window.location.hostname === 'localhost'
+    ? ''
+    : 'https://cv-bot-infos.onrender.com';  // Remplace par ton URL
+
+
 // Configuration des templates
 window.TEMPLATES_CONFIG = {
     ats: [
-        { image: "/Assets/Cv/ATS/ats.jpg", titre: "Pro", desc: "Structure claire et professionnelle", template: "ats", category: "ATS" },
+        { image: `${BASE_URL}/Assets/Cv/ATS/ats.jpg`, titre: "Pro", desc: "Structure claire et professionnelle", template: "ats", category: "ATS" },
         { image: "/Assets/Cv/ATS/ats_classique.jpg", titre: "ats_classique", desc: "", template: "ats_classique", category: "ATS" },
         { image: "/Assets/Cv/ATS/ats_moderne.jpg", titre: "ats_moderne", desc: "", template: "ats_moderne", category: "ATS" },
         { image: "/Assets/Cv/ATS/ats_minimaliste.jpg", titre: "ats_minimaliste", desc: "", template: "ats_minimaliste", category: "ATS" }
